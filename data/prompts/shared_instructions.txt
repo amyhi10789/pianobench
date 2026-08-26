@@ -1,0 +1,30 @@
+SHARED INSTRUCTIONS:
+Use the provided image as the exact first frame and structural reference for the piano.
+Preserve the number, position, shape, spacing, and repeating two-black-key/three-black-
+key pattern of every piano key throughout the entire video.
+Create one continuous 8-second photorealistic video of a real piano keyboard viewed from
+a fixed, slightly angled overhead camera. The camera must not move, zoom, cut, shake, or
+change angle. Keep the center octave of the keyboard fully visible throughout the entire
+video.
+Show exactly one anatomically correct right hand. The hand must remain fully visible at all
+times and must physically press the specified white piano keys.
+Use large, clear, exaggerated hand and finger movements so that every key press is easy to
+observe. Before each press, lift the finger noticeably above the keyboard. Move the hand
+clearly toward the target key, press the key with a visible downward motion, and lift the
+finger fully after release. Leave a brief, visible separation between the finger and the key
+before the next press.
+Do not use subtle tapping, tiny finger motions, sliding movements, or ambiguous contact.
+The hand must not hover so close to the keys that a press is difficult to distinguish. Each
+press and release must be visually obvious from the fixed camera angle.
+Each target key must visibly travel downward when pressed and return completely to its
+normal raised position after release. Only the intended finger should contact the intended
+key unless a chord is explicitly requested. Preserve a physically correct piano keyboard
+throughout the video. Do not add, remove, reshape, stretch, merge, or rearrange any keys.
+Generate synchronized audio directly with the video. Each visible key press must produce
+the matching acoustic-piano note at the exact moment the key begins moving downward.
+Each audible note must end naturally after the visible release. Use clean, isolated piano
+sound with no speech, background music, ambient sound, metronome, percussion, or
+extra notes.
+Do not display labels, arrows, note names, captions, sheet music, highlighting, or visual
+effects. Do not show a second hand. Do not press any black keys. Do not press, touch, or
+accidentally depress any keys other than those explicitly requested.

@@ -1,0 +1,41 @@
+{
+  "description": "Level 1 (singular notes) expectations. Times are in seconds from video start. No ground-truth videos.",
+  "level": 1,
+  "theme": "Singular notes",
+  "shared": {
+    "duration_seconds": 8.0,
+    "camera": "fixed_overhead",
+    "hands": 1,
+    "allowed_key_color": "white",
+    "audio": "clean_acoustic_piano_only"
+  },
+  "prompts": {
+    "1A": {
+      "prompt_file": "prompts/level1/prompt_1a_middle_c.txt",
+      "note": "C4",
+      "midi": 60,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1
+    },
+    "1B": {
+      "prompt_file": "prompts/level1/prompt_1b_e4.txt",
+      "note": "E4",
+      "midi": 64,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1
+    },
+    "1C": {
+      "prompt_file": "prompts/level1/prompt_1c_g4.txt",
+      "note": "G4",
+      "midi": 67,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1
+    }
+  }
+}

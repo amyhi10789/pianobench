@@ -1,0 +1,36 @@
+{
+  "project": "pianobench",
+  "version": "0.1.0",
+  "models": [
+    {
+      "id": "gemini",
+      "display_name": "Gemini"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "eval_1a_gemini",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/d1_p1.mp4",
+      "notes": "Example Gemini output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_gemini",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/d1_p2.mp4",
+      "notes": "Example Gemini output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_gemini",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/d1_p3.mp4",
+      "notes": "Example Gemini output for Prompt 1C"
+    }
+  ]
+}
