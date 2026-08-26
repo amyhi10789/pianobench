@@ -13,7 +13,7 @@
       "prompt_id": "1A",
       "level": 1,
       "model_id": "gemini",
-      "video_path": "videos/gemini/level1/d1_p1.mp4",
+      "video_path": "videos/gemini/level1/1a.mp4",
       "notes": "Example Gemini output for Prompt 1A"
     },
     {
@@ -21,16 +21,32 @@
       "prompt_id": "1B",
       "level": 1,
       "model_id": "gemini",
-      "video_path": "videos/gemini/level1/d1_p2.mp4",
+      "video_path": "videos/gemini/level1/1b-1.mp4",
       "notes": "Example Gemini output for Prompt 1B"
+    },
+    {
+      "id": "eval_1b_gemini",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/1b_best.mp4",
+      "notes": "Example Gemini output for Prompt 1B (better)"
     },
     {
       "id": "eval_1c_gemini",
       "prompt_id": "1C",
       "level": 1,
       "model_id": "gemini",
-      "video_path": "videos/gemini/level1/d1_p3.mp4",
+      "video_path": "videos/gemini/level1/1c.mp4",
       "notes": "Example Gemini output for Prompt 1C"
+    },
+    {
+      "id": "eval_2a_gemini",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level2/2a.mp4",
+      "notes": "Example Gemini output for Prompt 2A"
     }
   ]
 }

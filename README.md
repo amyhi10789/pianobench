@@ -78,5 +78,5 @@ Original PDF (reference only): `video+prompt/research prompt.pdf`
 You do **not** need to train models — the focus is preparing data and comparing outputs.
 
 - **Audio accuracy** is implemented once and used for every level (librosa onsets + pYIN): count, pitch, order, timing, and duration components.
-- **Video accuracy** and **AV alignment** still use placeholder demo scores until real detectors are added (see [docs/04-evaluation.md](docs/04-evaluation.md)).
+- **Video accuracy** uses VLM analysis of sampled frames when `OPENAI_API_KEY` is set; **AV alignment** still uses a placeholder demo score (see [docs/04-evaluation.md](docs/04-evaluation.md)).
 - Install `requirements.txt` (and system `ffmpeg`) for real audio scoring.

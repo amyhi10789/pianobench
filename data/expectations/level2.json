@@ -1,7 +1,31 @@
 {
-  "description": "Level 2 (ascending sequences) expectations — placeholder.",
+  "description": "Level 2 ascending-sequence expectations. No exact press schedule is specified by the prompts.",
   "level": 2,
   "theme": "Ascending sequences",
-  "shared": {},
-  "prompts": {}
+  "shared": {
+    "duration_seconds": 8.0,
+    "camera": "fixed_overhead",
+    "hands": 1,
+    "audio": "clean_acoustic_piano_only"
+  },
+  "prompts": {
+    "2A": {
+      "prompt_file": "prompts/level2/prompt_2a.txt",
+      "notes": ["C4", "D4", "E4", "F4"],
+      "midis": [60, 62, 64, 65],
+      "num_notes": 4
+    },
+    "2B": {
+      "prompt_file": "prompts/level2/prompt_2b.txt",
+      "notes": ["C4", "E4", "G4"],
+      "midis": [60, 64, 67],
+      "num_notes": 3
+    },
+    "2C": {
+      "prompt_file": "prompts/level2/prompt_2c.txt",
+      "notes": ["F4", "G4", "A4", "B4"],
+      "midis": [65, 67, 69, 71],
+      "num_notes": 4
+    }
+  }
 }

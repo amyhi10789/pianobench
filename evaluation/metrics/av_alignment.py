@@ -55,6 +55,17 @@ def score_av_alignment(
     soft_limit_seconds: float = 0.3,
     use_placeholder_demo: bool = True,
 ) -> AlignmentResult:
+    if expectation.get("notes") and not expectation.get("press_times"):
+        return AlignmentResult(
+            score=0.0,
+            audio_onset=None,
+            video_press_time=None,
+            lag_seconds=None,
+            details=(
+                "Sequence AV alignment is not implemented and this prompt has no "
+                "explicit press-time schedule."
+            ),
+        )
     audio_t = detect_audio_onset(video_path)
     video_t = detect_video_press_time(video_path)
     expected_t = float(expectation["press_time"])

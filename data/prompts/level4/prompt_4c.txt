@@ -1,0 +1,8 @@
+Prompt 4C: Alternating repetition, C4–C4–E4–C4
+
+[Insert the shared instructions above.]
+
+Play four separate notes in the order C4, C4, E4, C4. Release each key completely
+before the next press. The first two C4 events must be two distinct presses 
+and two distinct sounds, not one sustained note. Produce exactly four audible 
+notes in the order C4, C4, E4, C4. Do not add any other presses or sounds.

@@ -54,8 +54,20 @@ Real note detection and key tracking need extra libraries and more advanced code
 
 - **Audio accuracy** is implemented with `librosa` (onset + pYIN) and is shared across levels. Install
   `requirements.txt` and have `ffmpeg` available for real scores.
-- **Video** and **AV alignment** still use stubs plus a **demo mode** so the full
-  pipeline runs before those detectors exist.
+- **Video accuracy** samples six frames around the expected press and sends them
+  to an image-capable model. Set `OPENAI_API_KEY` before running it. The model can
+  be overridden with `PIANOBENCH_VISION_MODEL` (default: `gpt-5.4-mini`).
+- **AV alignment** still uses a stub plus a **demo mode**.
+
+On Windows PowerShell, set the API key for the current terminal with:
+
+```powershell
+$env:OPENAI_API_KEY = "your-api-key"
+python evaluation/evaluate.py --no-demo
+```
+
+Do not paste an API key into source code or commit it to the repository. Video
+accuracy sends sampled JPEG frames—not the complete MP4—to the configured API.
 
 Demo mode is **ON** by default for metrics that cannot produce a real score.
 Audio uses real detection when dependencies work; it only falls back to a demo
@@ -143,7 +155,7 @@ Suggested follow-up:
 | File | Function to replace | Future idea |
 |------|---------------------|-------------|
 | `evaluation/metrics/audio_accuracy.py` | already implemented (librosa onsets + pYIN) | refine thresholds / multi-pitch for chords |
-| `evaluation/metrics/video_accuracy.py` | `detect_key_presses` | track key motion with OpenCV |
+| `evaluation/metrics/video_accuracy.py` | VLM frame analysis implemented | calibrate against human-labeled videos |
 | `evaluation/metrics/av_alignment.py` | `detect_audio_onset`, `detect_video_press_time` | compare onset times |
 
 **Audio accuracy** combines count, pitch, order, timing, and duration

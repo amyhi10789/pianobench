@@ -21,11 +21,14 @@ import json
 import sys
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 # Allow running this file directly without installing a package.
 ROOT = Path(__file__).resolve().parents[1]
 EVAL_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
 EXPECTATIONS_DIR = DATA_DIR / "expectations"
+load_dotenv(ROOT / ".env")
 sys.path.insert(0, str(EVAL_DIR))
 
 from metrics.audio_accuracy import score_audio_accuracy  # noqa: E402

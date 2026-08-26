@@ -10,6 +10,7 @@ __pycache__/
 .idea/
 .vscode/
 *.swp
+.env
 
 # Local evaluation outputs (keep folder via .gitkeep if needed)
 evaluation/results/scores.json

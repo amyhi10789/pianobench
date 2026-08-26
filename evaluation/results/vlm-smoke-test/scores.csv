@@ -1,0 +1,2 @@
+eval_id,prompt_id,level,model_id,model_name,video,expected_note,audio_accuracy,video_accuracy,av_alignment,overall
+single,1A,1,manual,manual,data\videos\gemini\level1\1a.mp4,C4,0.986,0.525,0.0,0.529

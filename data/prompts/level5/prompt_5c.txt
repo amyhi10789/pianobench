@@ -1,0 +1,10 @@
+Prompt 5C: Two separate chords
+
+[Insert the shared instructions above.]
+
+Perform exactly two separate chord events. First, press C4 and E4 simultaneously. 
+Release both keys completely before moving to the second chord. Then press F4 
+and A4 simultaneously. Within each chord, both visible key movements and both 
+audible pitches must begin at the same moment. Produce exactly the pitches C4 
+and E4 in the first chord, followed by exactly F4 and A4 in the second chord. 
+Do not arpeggiate either chord and do not add any other keys or sounds.

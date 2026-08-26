@@ -1,0 +1,25 @@
+[
+  {
+    "video": "data\\videos\\gemini\\level1\\1a.mp4",
+    "level": 1,
+    "expected_note": "C4",
+    "audio_accuracy": 0.986,
+    "video_accuracy": 0.525,
+    "av_alignment": 0.0,
+    "overall": 0.529,
+    "audio_details": "expected=['C4'], detected=['C4']; count=1.000, pitch=1.000, order=1.000, timing=0.940, duration=0.898; weights={'count_accuracy': 0.25, 'pitch_accuracy': 0.35, 'order_accuracy': 0.2, 'timing_accuracy': 0.15, 'duration_accuracy': 0.05}",
+    "audio_components": {
+      "count_accuracy": 1.0,
+      "pitch_accuracy": 1.0,
+      "order_accuracy": 1.0,
+      "timing_accuracy": 0.94,
+      "duration_accuracy": 0.898
+    },
+    "video_details": "VLM observation={'observed_note': 'D4', 'press_time': 2.85, 'extra_press_count': 0, 'one_hand_only': True, 'target_key_visibly_moves': True, 'confidence': 0.89, 'explanation': 'The finger that actually shows downward travel is the index finger pressing the white key between the two-black-key group (C#-D#) and the next three-black-key group; that white key is D4. In the 2.9s frame the key is still up, while by 3.1s it is clearly depressed, so the press occurs around 2.85s by interpolation. No clear additional key presses are visible.'}; components={'note': 0.0, 'timing': 0.7000000000000002, 'visible_motion': 1.0, 'no_extra_presses': 1.0, 'one_hand': 1.0}; expected=C4 @ 3.000s",
+    "alignment_details": "Could not measure alignment and demo mode is off.",
+    "eval_id": "single",
+    "prompt_id": "1A",
+    "model_id": "manual",
+    "model_name": "manual"
+  }
+]
