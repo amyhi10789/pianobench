@@ -47,6 +47,22 @@
       "model_id": "gemini",
       "video_path": "videos/gemini/level2/2a.mp4",
       "notes": "Example Gemini output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_gemini",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level2/2b.mp4",
+      "notes": "Example Gemini output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_gemini",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level2/2c.mp4",
+      "notes": "Example Gemini output for Prompt 2C"
     }
   ]
 }
