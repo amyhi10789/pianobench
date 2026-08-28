@@ -57,7 +57,10 @@ Real note detection and key tracking need extra libraries and more advanced code
 - **Video accuracy** samples six frames around the expected press and sends them
   to an image-capable model. Set `OPENAI_API_KEY` before running it. The model can
   be overridden with `PIANOBENCH_VISION_MODEL` (default: `gpt-5.4-mini`).
-- **AV alignment** still uses a stub plus a **demo mode**.
+- **AV alignment** reuses the audio note onsets and VLM visual press times from
+  the same evaluation. It pairs detections one-to-one by nearest time and scores
+  synchronization independently of pitch correctness. Missing events receive
+  zero; lag credit tapers to zero at 0.5 seconds.
 
 On Windows PowerShell, set the API key for the current terminal with:
 
@@ -156,7 +159,7 @@ Suggested follow-up:
 |------|---------------------|-------------|
 | `evaluation/metrics/audio_accuracy.py` | already implemented (librosa onsets + pYIN) | refine thresholds / multi-pitch for chords |
 | `evaluation/metrics/video_accuracy.py` | VLM frame analysis implemented | calibrate against human-labeled videos |
-| `evaluation/metrics/av_alignment.py` | `detect_audio_onset`, `detect_video_press_time` | compare onset times |
+| `evaluation/metrics/av_alignment.py` | real event matching implemented | calibrate lag tolerance against labeled videos |
 
 **Audio accuracy** combines count, pitch, order, timing, and duration
 component scores (see `DEFAULT_WEIGHTS` in that file). The same functions

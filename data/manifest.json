@@ -63,6 +63,78 @@
       "model_id": "gemini",
       "video_path": "videos/gemini/level2/2c.mp4",
       "notes": "Example Gemini output for Prompt 2C"
+    },
+    {
+      "id": "eval_3a_gemini",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level3/3a.mp4",
+      "notes": "Example Gemini output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_gemini",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level3/3b.mp4",
+      "notes": "Example Gemini output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_gemini",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level3/3c.mp4",
+      "notes": "Example Gemini output for Prompt 3C"
+    },
+    {
+      "id": "eval_4a_gemini",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level4/4a.mp4",
+      "notes": "Example Gemini output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_gemini",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level4/4B.mp4",
+      "notes": "Example Gemini output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_gemini",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level4/4c.mp4",
+      "notes": "Example Gemini output for Prompt 4C"
+    },
+    {
+      "id": "eval_5a_gemini",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level5/5a.mp4",
+      "notes": "Example Gemini output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_gemini",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level5/5b.mp4",
+      "notes": "Example Gemini output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_gemini",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level5/5c.mp4",
+      "notes": "Example Gemini output for Prompt 5C"
     }
   ]
 }

@@ -455,15 +455,22 @@ def _pitch_and_timing_from_alignment(
     if not expected_notes:
         return 1.0, 1.0, 1.0
 
-    pitch_hits = 0
+    pitch_credit = 0.0
     timing_scores: list[float] = []
     duration_scores: list[float] = []
 
     for i, j in matched:
         exp_note = expected_notes[i]
         det = detected[j]
-        if det.note == exp_note or det.midi == note_name_to_midi(exp_note):
-            pitch_hits += 1
+        expected_midi = note_name_to_midi(exp_note)
+        if det.midi == expected_midi:
+            pitch_credit += 1.0
+        elif det.midi % 12 == expected_midi % 12:
+            # pYIN can lock onto a piano harmonic one or more octaves high.
+            # Preserve an octave penalty instead of turning that instability
+            # into an all-or-nothing pitch failure.
+            octave_distance = abs(det.midi - expected_midi) // 12
+            pitch_credit += max(0.4, 0.75 - 0.15 * (octave_distance - 1))
 
         t_exp = expected_onsets[i] if i < len(expected_onsets) else None
         if t_exp is not None:
@@ -476,7 +483,7 @@ def _pitch_and_timing_from_alignment(
             duration_scores.append(max(0.0, 1.0 - err / max(duration_tolerance, 1e-6)))
 
     # Unmatched expected notes count as pitch misses.
-    pitch_acc = pitch_hits / max(len(expected_notes), 1)
+    pitch_acc = pitch_credit / max(len(expected_notes), 1)
 
     if not timing_scores:
         # No expected schedule to compare — do not punish.
@@ -514,7 +521,11 @@ def _order_accuracy(expected_notes: list[str], detected_notes: list[str]) -> flo
         return 0.0
     if len(expected_notes) == 1:
         return 1.0
-    lcs = _lcs_length(expected_notes, detected_notes)
+    # Sequence order is about pitch-class movement; octave correctness is
+    # already scored separately by the pitch component.
+    expected_classes = [str(note_name_to_midi(note) % 12) for note in expected_notes]
+    detected_classes = [str(note_name_to_midi(note) % 12) for note in detected_notes]
+    lcs = _lcs_length(expected_classes, detected_classes)
     return lcs / len(expected_notes)
 
 

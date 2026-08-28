@@ -1,7 +1,26 @@
 {
-  "description": "Level 3 (descending sequences) expectations — placeholder.",
+  "description": "Level 3 descending-sequence expectations. No exact press schedule is specified.",
   "level": 3,
   "theme": "Descending sequences",
-  "shared": {},
-  "prompts": {}
+  "shared": {"duration_seconds": 8.0, "camera": "fixed_overhead", "hands": 1},
+  "prompts": {
+    "3A": {
+      "prompt_file": "prompts/level3/prompt_3a.txt",
+      "notes": ["F4", "E4", "D4", "C4"],
+      "midis": [65, 64, 62, 60],
+      "num_notes": 4
+    },
+    "3B": {
+      "prompt_file": "prompts/level3/prompt_3b.txt",
+      "notes": ["G4", "E4", "C4"],
+      "midis": [67, 64, 60],
+      "num_notes": 3
+    },
+    "3C": {
+      "prompt_file": "prompts/level3/prompt_3c.txt",
+      "notes": ["B4", "A4", "G4", "F4"],
+      "midis": [71, 69, 67, 65],
+      "num_notes": 4
+    }
+  }
 }

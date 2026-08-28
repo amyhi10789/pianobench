@@ -88,7 +88,11 @@ def evaluate_one(
         str(video_path), expectation, use_placeholder_demo=use_placeholder_demo
     )
     align = score_av_alignment(
-        str(video_path), expectation, use_placeholder_demo=use_placeholder_demo
+        str(video_path),
+        expectation,
+        audio_events=audio.detected_events,
+        video_events=video.detected_events,
+        use_placeholder_demo=use_placeholder_demo,
     )
     total = overall_score(audio.score, video.score, align.score, DEFAULT_WEIGHTS)
     return {
@@ -109,6 +113,7 @@ def evaluate_one(
         },
         "video_details": video.details,
         "alignment_details": align.details,
+        "alignment_events": align.event_alignments,
     }
 
 

@@ -1,0 +1,30 @@
+[
+  {
+    "video": "data\\videos\\gemini\\level2\\2a.mp4",
+    "level": 2,
+    "expected_note": [
+      "C4",
+      "D4",
+      "E4",
+      "F4"
+    ],
+    "audio_accuracy": 0.3,
+    "video_accuracy": 1.0,
+    "av_alignment": 0.0,
+    "overall": 0.455,
+    "audio_details": "expected=['C4', 'D4', 'E4', 'F4'], detected=['C5', 'D5', 'B4', 'E5', 'F5', 'E5', 'E5', 'G5', 'E5', 'E5']; count=0.400, pitch=0.000, order=0.000, timing=1.000, duration=1.000; weights={'count_accuracy': 0.25, 'pitch_accuracy': 0.35, 'order_accuracy': 0.2, 'timing_accuracy': 0.15, 'duration_accuracy': 0.05}",
+    "audio_components": {
+      "count_accuracy": 0.4,
+      "pitch_accuracy": 0.0,
+      "order_accuracy": 0.0,
+      "timing_accuracy": 1.0,
+      "duration_accuracy": 1.0
+    },
+    "video_details": "VLM sequence observation={'observed_notes': ['C4', 'D4', 'E4', 'F4'], 'press_times': [0.5, 1.5, 5.5, 7.5], 'visible_press_count': 4, 'extra_press_count': 0, 'one_hand_only': True, 'presses_visibly_distinct': True, 'confidence': 0.44, 'explanation': 'The hand is on one keyboard only. Distinct downward travel is visible for four presses: C4 around 0.500s, D4 around 1.500s, E4 around 5.500s, and F4 around 7.500s. The frames show the finger positions changing enough to support these as separate presses, though the 0.5s sampling means exact onset times are approximate.'}; components={'count': 1.0, 'pitch_by_position': 1.0, 'order': 1.0, 'distinct_presses': 1.0, 'no_extra_presses': 1.0, 'one_hand': 1.0}; expected ordered notes=['C4', 'D4', 'E4', 'F4']; no fixed timing schedule",
+    "alignment_details": "Sequence AV alignment is not implemented and this prompt has no explicit press-time schedule.",
+    "eval_id": "single",
+    "prompt_id": "2A",
+    "model_id": "manual",
+    "model_name": "manual"
+  }
+]

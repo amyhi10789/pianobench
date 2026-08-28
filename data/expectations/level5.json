@@ -1,7 +1,32 @@
 {
-  "description": "Level 5 (chords) expectations — placeholder.",
+  "description": "Level 5 chord expectations. chord_events preserves simultaneity; notes is the flattened pitch list.",
   "level": 5,
   "theme": "Chords",
-  "shared": {},
-  "prompts": {}
+  "shared": {"duration_seconds": 8.0, "camera": "fixed_overhead", "hands": 1},
+  "prompts": {
+    "5A": {
+      "prompt_file": "prompts/level5/prompt_5a.txt",
+      "notes": ["C4", "E4"],
+      "midis": [60, 64],
+      "num_notes": 2,
+      "chord_events": [["C4", "E4"]],
+      "num_chord_events": 1
+    },
+    "5B": {
+      "prompt_file": "prompts/level5/prompt_5b.txt",
+      "notes": ["C4", "E4", "G4"],
+      "midis": [60, 64, 67],
+      "num_notes": 3,
+      "chord_events": [["C4", "E4", "G4"]],
+      "num_chord_events": 1
+    },
+    "5C": {
+      "prompt_file": "prompts/level5/prompt_5c.txt",
+      "notes": ["C4", "E4", "F4", "A4"],
+      "midis": [60, 64, 65, 69],
+      "num_notes": 4,
+      "chord_events": [["C4", "E4"], ["F4", "A4"]],
+      "num_chord_events": 2
+    }
+  }
 }
