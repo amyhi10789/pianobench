@@ -22,7 +22,33 @@ from urllib.parse import unquote, urlparse
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 VIDEO_ROOT = PROJECT_ROOT / "data" / "videos"
+RESULTS_PATH = PROJECT_ROOT / "human_evaluation_results.json"
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogg", ".ogv", ".mov", ".m4v"}
+RESULTS_LOCK = threading.Lock()
+
+
+def load_results() -> dict[str, int]:
+    """Load cumulative totals, using empty totals for a missing/invalid file."""
+    defaults = {"good": 0, "bad": 0, "evaluations": 0}
+    try:
+        stored = json.loads(RESULTS_PATH.read_text(encoding="utf-8"))
+        return {
+            key: max(0, int(stored.get(key, default)))
+            for key, default in defaults.items()
+        }
+    except (FileNotFoundError, json.JSONDecodeError, TypeError, ValueError):
+        return defaults
+
+
+def add_results(good: int, bad: int) -> dict[str, int]:
+    """Add one completed evaluation to the persistent cumulative totals."""
+    with RESULTS_LOCK:
+        totals = load_results()
+        totals["good"] += good
+        totals["bad"] += bad
+        totals["evaluations"] += 1
+        RESULTS_PATH.write_text(json.dumps(totals, indent=2) + "\n", encoding="utf-8")
+        return totals
 
 
 def natural_key(path: Path) -> list[object]:
@@ -68,6 +94,8 @@ PAGE = r"""<!doctype html>
     .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px auto; max-width: 800px; }
     .result { padding: 35px 15px; border-radius: 22px; font-size: clamp(1.5rem, 4vw, 2.8rem); font-weight: 900; }
     .result span { display: block; font-size: clamp(3rem, 9vw, 6rem); margin-top: 10px; }
+    .overall { margin: 38px auto; padding-top: 28px; max-width: 800px; border-top: 1px solid #3a4050; }
+    .overall h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin-bottom: 8px; }
     .restart { padding: 15px 28px; border-radius: 12px; background: #7c5cff; color: white; }
     @media (max-width: 600px) { .votes, .result-grid { grid-template-columns: 1fr; } .vote { min-height: 90px; } }
   </style>
@@ -97,6 +125,14 @@ PAGE = r"""<!doctype html>
       <div class="result good">Good<span id="good-percent"></span></div>
       <div class="result bad">Bad<span id="bad-percent"></span></div>
     </div>
+    <div class="overall">
+      <h2>Overall saved results</h2>
+      <p id="overall-summary">Saving and loading cumulative results...</p>
+      <div class="result-grid">
+        <div class="result good">Good<span id="overall-good-percent"></span></div>
+        <div class="result bad">Bad<span id="overall-bad-percent"></span></div>
+      </div>
+    </div>
     <button class="restart">Evaluate again</button>
   </section>
 </main>
@@ -119,16 +155,36 @@ PAGE = r"""<!doctype html>
     if (!videos.length) return show('empty');
     show('review'); loadVideo();
   }
+  async function finish() {
+    const total = good + bad;
+    $('video').pause(); $('video').removeAttribute('src');
+    $('good-percent').textContent = `${(100 * good / total).toFixed(1)}%`;
+    $('bad-percent').textContent = `${(100 * bad / total).toFixed(1)}%`;
+    $('summary').textContent = `This evaluation: ${good} good and ${bad} bad out of ${total} videos`;
+    show('results');
+    try {
+      const response = await fetch('/results', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({good, bad})
+      });
+      if (!response.ok) throw new Error('Could not save results');
+      const saved = await response.json();
+      const overallTotal = saved.good + saved.bad;
+      const goodPercent = overallTotal ? 100 * saved.good / overallTotal : 0;
+      const badPercent = overallTotal ? 100 * saved.bad / overallTotal : 0;
+      $('overall-good-percent').textContent = `${goodPercent.toFixed(1)}%`;
+      $('overall-bad-percent').textContent = `${badPercent.toFixed(1)}%`;
+      $('overall-summary').textContent = `${saved.good} good and ${saved.bad} bad across ${saved.evaluations} completed evaluation(s)`;
+    } catch (error) {
+      $('overall-summary').textContent = 'The cumulative results could not be saved or loaded.';
+    }
+  }
   function vote(isGood) {
     isGood ? good++ : bad++;
     index++;
     if (index < videos.length) return loadVideo();
-    $('video').pause(); $('video').removeAttribute('src');
-    const total = good + bad;
-    $('good-percent').textContent = `${(100 * good / total).toFixed(1)}%`;
-    $('bad-percent').textContent = `${(100 * bad / total).toFixed(1)}%`;
-    $('summary').textContent = `${good} good and ${bad} bad out of ${total} videos`;
-    show('results');
+    finish();
   }
   $('start').addEventListener('click', start);
   document.querySelector('.good.vote').addEventListener('click', () => vote(true));
@@ -163,6 +219,31 @@ class EvaluationHandler(BaseHTTPRequestHandler):
             self.serve_video(self.videos[int(match.group(1))])
             return
         self.send_error(404)
+
+    def do_POST(self) -> None:  # noqa: N802 - required by BaseHTTPRequestHandler
+        if urlparse(self.path).path != "/results":
+            self.send_error(404)
+            return
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if length <= 0 or length > 1024:
+                raise ValueError("Invalid request size")
+            submitted = json.loads(self.rfile.read(length))
+            good = int(submitted["good"])
+            bad = int(submitted["bad"])
+            if good < 0 or bad < 0 or good + bad != len(self.videos):
+                raise ValueError("Results must contain one vote per video")
+            totals = add_results(good, bad)
+        except (json.JSONDecodeError, KeyError, TypeError, ValueError):
+            self.send_error(400, "Invalid evaluation results")
+            return
+
+        response = json.dumps(totals).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(response)))
+        self.end_headers()
+        self.wfile.write(response)
 
     def serve_video(self, path: Path) -> None:
         size = path.stat().st_size
