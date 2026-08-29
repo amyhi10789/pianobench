@@ -43,6 +43,7 @@ DEFAULT_WEIGHTS = {
 
 # Onset / pitch heuristics tuned for short clean piano clips.
 MIN_ONSET_SEP_SECONDS = 0.12
+CHORD_ONSET_TOLERANCE_SECONDS = 0.10
 ONSET_ENERGY_PERCENTILE = 70.0
 PITCH_WINDOW_SECONDS = 0.35
 PITCH_HOP_SECONDS = 0.01
@@ -178,6 +179,14 @@ def expected_hold_durations(expectation: dict[str, Any], n: int) -> list[float |
     if len(holds) < n:
         holds = holds + [None] * (n - len(holds))
     return holds[:n]
+
+
+def expected_chord_events(expectation: dict[str, Any]) -> list[list[str]]:
+    """Return explicitly grouped simultaneous notes, or an empty list."""
+    events = expectation.get("chord_events")
+    if not events:
+        return []
+    return [[str(note) for note in event] for event in events]
 
 
 # --- audio loading / detection -----------------------------------------------
@@ -374,6 +383,112 @@ def detect_notes_from_audio(
     return events
 
 
+def detect_chords_from_audio(
+    video_path: str,
+    *,
+    sr: int = DEFAULT_SR,
+    max_time: float | None = None,
+    min_confidence: float = 0.12,
+    midi_min: int = 36,
+    midi_max: int = 96,
+) -> list[DetectedNote]:
+    """Detect multiple pitches at each onset using a harmonic CQT salience map.
+
+    This is deliberately separate from ``detect_notes_from_audio`` so the
+    established monophonic evaluation path is not changed.
+    """
+    y, sr = load_mono_audio(video_path, sr=sr)
+    duration = float(len(y) / sr)
+    if duration <= 0:
+        return []
+    if max_time is not None:
+        duration = min(duration, float(max_time))
+        y = y[: int(duration * sr)]
+
+    hop_length = 256
+    onset_env = librosa.onset.onset_strength(y=y, sr=sr, hop_length=hop_length)
+    onset_frames = librosa.onset.onset_detect(
+        onset_envelope=onset_env,
+        sr=sr,
+        hop_length=hop_length,
+        units="frames",
+        backtrack=True,
+        delta=0.07,
+        wait=max(1, int(MIN_ONSET_SEP_SECONDS * sr / hop_length)),
+    )
+    if len(onset_frames) == 0 and onset_env.size and float(np.max(onset_env)) > 0:
+        onset_frames = np.array([int(np.argmax(onset_env))])
+    if len(onset_frames) == 0:
+        return []
+
+    bins_per_octave = 36
+    n_bins = 8 * bins_per_octave
+    cqt = np.abs(
+        librosa.cqt(
+            y,
+            sr=sr,
+            hop_length=hop_length,
+            fmin=librosa.note_to_hz("C1"),
+            n_bins=n_bins,
+            bins_per_octave=bins_per_octave,
+        )
+    )
+    cqt_db = librosa.amplitude_to_db(cqt, ref=np.max)
+    events: list[DetectedNote] = []
+    end_frame = cqt.shape[1] - 1
+
+    for index, onset_frame_raw in enumerate(onset_frames):
+        onset_frame = min(int(onset_frame_raw), end_frame)
+        next_frame = (
+            min(int(onset_frames[index + 1]), end_frame)
+            if index + 1 < len(onset_frames)
+            else end_frame
+        )
+        # Avoid the noisy attack itself and aggregate a short sustained region.
+        start = min(onset_frame + 2, end_frame)
+        stop = min(max(start + 1, onset_frame + int(0.30 * sr / hop_length)), next_frame)
+        if stop <= start:
+            stop = min(start + 1, cqt.shape[1])
+        spectrum = np.median(cqt_db[:, start:stop], axis=1)
+
+        candidates: list[tuple[float, int]] = []
+        for midi in range(midi_min, midi_max + 1):
+            fundamental = int(round((midi - 24) * bins_per_octave / 12))
+            if fundamental < 0 or fundamental >= len(spectrum):
+                continue
+            harmonic_bins = [
+                fundamental,
+                fundamental + int(round(12 * bins_per_octave / 12)),
+                fundamental + int(round(19 * bins_per_octave / 12)),
+            ]
+            weights = [1.0, 0.45, 0.25]
+            present = [(spectrum[b], w) for b, w in zip(harmonic_bins, weights) if b < len(spectrum)]
+            salience = sum(value * weight for value, weight in present) / sum(weight for _, weight in present)
+            candidates.append((float(salience), midi))
+
+        if not candidates:
+            continue
+        peak = max(score for score, _ in candidates)
+        # A note must be locally prominent and reasonably close to this onset's
+        # strongest harmonic template. The cap prevents dense overtone output.
+        selected: list[tuple[float, int]] = []
+        by_midi = {midi: score for score, midi in candidates}
+        for score, midi in candidates:
+            neighbours = [by_midi.get(midi - 1, -120.0), by_midi.get(midi + 1, -120.0)]
+            if score >= peak - 13.0 and score >= max(neighbours):
+                selected.append((score, midi))
+        selected = sorted(selected, reverse=True)[:6]
+
+        onset = float(librosa.frames_to_time(onset_frame, sr=sr, hop_length=hop_length))
+        event_end = float(librosa.frames_to_time(next_frame, sr=sr, hop_length=hop_length))
+        note_duration = max(0.05, min(2.0, event_end - onset))
+        for score, midi in sorted(selected, key=lambda item: item[1]):
+            confidence = max(min_confidence, min(1.0, 1.0 - (peak - score) / 20.0))
+            events.append(DetectedNote(midi_to_note_name(midi), midi, onset, note_duration, confidence))
+
+    return events
+
+
 # --- scoring ------------------------------------------------------------------
 
 
@@ -529,6 +644,81 @@ def _order_accuracy(expected_notes: list[str], detected_notes: list[str]) -> flo
     return lcs / len(expected_notes)
 
 
+def _group_simultaneous_notes(
+    detected: list[DetectedNote], tolerance: float = CHORD_ONSET_TOLERANCE_SECONDS
+) -> list[list[DetectedNote]]:
+    """Group pitches whose attacks belong to the same chord event."""
+    groups: list[list[DetectedNote]] = []
+    for note in sorted(detected, key=lambda event: event.onset):
+        if groups and abs(note.onset - groups[-1][0].onset) <= tolerance:
+            groups[-1].append(note)
+        else:
+            groups.append([note])
+    return groups
+
+
+def _chord_components(
+    expected_events: list[list[str]],
+    detected: list[DetectedNote],
+    expectation: dict[str, Any],
+    *,
+    timing_tolerance: float,
+    duration_tolerance: float,
+) -> tuple[float, float, float, float, float, list[list[DetectedNote]]]:
+    """Score chords as ordered events with unordered notes inside each event."""
+    detected_events = _group_simultaneous_notes(detected)
+    expected_flat = [note for event in expected_events for note in event]
+    detected_flat = [note for event in detected_events for note in event]
+    count_acc = _count_accuracy(len(detected_flat), len(expected_flat))
+
+    pitch_hits = 0.0
+    for expected_event, detected_event in zip(expected_events, detected_events):
+        remaining = list(detected_event)
+        for expected_note in expected_event:
+            expected_midi = note_name_to_midi(expected_note)
+            exact = next((note for note in remaining if note.midi == expected_midi), None)
+            octave = next(
+                (note for note in remaining if note.midi % 12 == expected_midi % 12), None
+            )
+            match = exact or octave
+            if match is not None:
+                pitch_hits += 1.0 if exact is not None else 0.6
+                remaining.remove(match)
+    pitch_acc = pitch_hits / max(len(expected_flat), 1)
+
+    # Ordering applies between chord attacks only. Pitch order within a chord is
+    # intentionally ignored.
+    expected_tokens = [
+        ",".join(sorted(str(note_name_to_midi(note) % 12) for note in event))
+        for event in expected_events
+    ]
+    detected_tokens = [
+        ",".join(sorted(str(note.midi % 12) for note in event))
+        for event in detected_events
+    ]
+    order_acc = _lcs_length(expected_tokens, detected_tokens) / max(len(expected_tokens), 1)
+
+    expected_times = expected_onset_times(expectation, len(expected_events))
+    timing_scores = []
+    for index, expected_time in enumerate(expected_times):
+        if expected_time is not None:
+            if index < len(detected_events):
+                lag = abs(detected_events[index][0].onset - expected_time)
+                timing_scores.append(max(0.0, 1.0 - lag / max(timing_tolerance, 1e-6)))
+            else:
+                timing_scores.append(0.0)
+    timing_acc = float(np.mean(timing_scores)) if timing_scores else (1.0 if detected_events else 0.0)
+
+    expected_holds = expected_hold_durations(expectation, len(expected_flat))
+    duration_scores = []
+    for expected_hold, detected_note in zip(expected_holds, detected_flat):
+        if expected_hold is not None and expected_hold > 0:
+            error = abs(detected_note.duration - expected_hold)
+            duration_scores.append(max(0.0, 1.0 - error / max(duration_tolerance, 1e-6)))
+    duration_acc = float(np.mean(duration_scores)) if duration_scores else (1.0 if detected_flat else 0.0)
+    return count_acc, pitch_acc, order_acc, timing_acc, duration_acc, detected_events
+
+
 def combine_component_scores(
     components: dict[str, float],
     weights: dict[str, float] | None = None,
@@ -554,6 +744,7 @@ def score_audio_accuracy(
     soft demo score so the pipeline still runs.
     """
     expected_notes = expected_note_sequence(expectation)
+    chord_events = expected_chord_events(expectation)
     expected_label = expected_notes[0] if len(expected_notes) == 1 else ",".join(expected_notes)
     w = dict(DEFAULT_WEIGHTS if weights is None else weights)
     max_time = None
@@ -564,7 +755,10 @@ def score_audio_accuracy(
         max_time = float(expectation["release_time"]) + 2.0
 
     try:
-        detected_events = detect_notes_from_audio(video_path, max_time=max_time)
+        if chord_events:
+            detected_events = detect_chords_from_audio(video_path, max_time=max_time)
+        else:
+            detected_events = detect_notes_from_audio(video_path, max_time=max_time)
     except Exception as exc:
         if use_placeholder_demo:
             return AudioAccuracyResult(
@@ -594,21 +788,31 @@ def score_audio_accuracy(
 
     detected_notes = [e.note for e in detected_events]
     n_exp, n_det = len(expected_notes), len(detected_events)
-    onsets = expected_onset_times(expectation, n_exp)
-    holds = expected_hold_durations(expectation, n_exp)
-    pairs = _align_by_onset(expected_notes, onsets, detected_events)
-
-    count_acc = _count_accuracy(n_det, n_exp)
-    order_acc = _order_accuracy(expected_notes, detected_notes)
-    pitch_acc, timing_acc, duration_acc = _pitch_and_timing_from_alignment(
-        expected_notes,
-        onsets,
-        holds,
-        detected_events,
-        pairs,
-        timing_tolerance=timing_tolerance_seconds,
-        duration_tolerance=duration_tolerance_seconds,
-    )
+    if chord_events:
+        count_acc, pitch_acc, order_acc, timing_acc, duration_acc, detected_chords = (
+            _chord_components(
+                chord_events,
+                detected_events,
+                expectation,
+                timing_tolerance=timing_tolerance_seconds,
+                duration_tolerance=duration_tolerance_seconds,
+            )
+        )
+    else:
+        onsets = expected_onset_times(expectation, n_exp)
+        holds = expected_hold_durations(expectation, n_exp)
+        pairs = _align_by_onset(expected_notes, onsets, detected_events)
+        count_acc = _count_accuracy(n_det, n_exp)
+        order_acc = _order_accuracy(expected_notes, detected_notes)
+        pitch_acc, timing_acc, duration_acc = _pitch_and_timing_from_alignment(
+            expected_notes,
+            onsets,
+            holds,
+            detected_events,
+            pairs,
+            timing_tolerance=timing_tolerance_seconds,
+            duration_tolerance=duration_tolerance_seconds,
+        )
 
     # If nothing was detected at all, allow optional demo fallback.
     if n_det == 0 and use_placeholder_demo:
@@ -645,6 +849,9 @@ def score_audio_accuracy(
         f"timing={timing_acc:.3f}, duration={duration_acc:.3f}; "
         f"weights={w}"
     )
+    if chord_events:
+        detected_chord_labels = [[note.note for note in event] for event in detected_chords]
+        details += f"; expected_chords={chord_events}, detected_chords={detected_chord_labels}"
 
     return AudioAccuracyResult(
         score=round(overall, 3),
