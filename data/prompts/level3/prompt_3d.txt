@@ -1,0 +1,9 @@
+Prompt 3D: A4–F4–E4–C4
+
+[Insert the shared instructions above.]
+
+Play the descending sequence A4, F4, E4, C4 using four separate presses. 
+Release each key fully before pressing the next key. Produce exactly four 
+audible notes in the order A4, F4, E4, C4. Each sound must begin when its 
+matching key visibly moves downward. Do not play any notes simultaneously. 
+Do not skip, repeat, combine, replace, or add notes.
