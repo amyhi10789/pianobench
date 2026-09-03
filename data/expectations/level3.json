@@ -10,6 +10,18 @@
       "midis": [65, 64, 62, 60],
       "num_notes": 4
     },
+    "3D": {
+      "prompt_file": "prompts/level3/prompt_3d.txt",
+      "notes": ["A4", "F4", "E4", "C4"],
+      "midis": [69, 65, 64, 60],
+      "num_notes": 4
+    },
+    "3E": {
+      "prompt_file": "prompts/level3/prompt_3e.txt",
+      "notes": ["B4", "G4", "D4"],
+      "midis": [71, 67, 62],
+      "num_notes": 3
+    },
     "3B": {
       "prompt_file": "prompts/level3/prompt_3b.txt",
       "notes": ["G4", "E4", "C4"],

@@ -16,6 +16,18 @@
       "midis": [64, 64, 64, 64],
       "num_notes": 4
     },
+    "4D": {
+      "prompt_file": "prompts/level4/prompt_4d.txt",
+      "notes": ["G4", "G4", "G4"],
+      "midis": [67, 67, 67],
+      "num_notes": 3
+    },
+    "4E": {
+      "prompt_file": "prompts/level4/prompt_4e.txt",
+      "notes": ["E4", "G4", "G4", "E4"],
+      "midis": [64, 67, 67, 64],
+      "num_notes": 4
+    },
     "4C": {
       "prompt_file": "prompts/level4/prompt_4c.txt",
       "notes": ["C4", "C4", "E4", "C4"],

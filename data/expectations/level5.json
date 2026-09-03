@@ -27,6 +27,22 @@
       "num_notes": 4,
       "chord_events": [["C4", "E4"], ["F4", "A4"]],
       "num_chord_events": 2
+    },
+    "5D": {
+      "prompt_file": "prompts/level5/prompt_5d.txt",
+      "notes": ["D4", "A4"],
+      "midis": [62, 69],
+      "num_notes": 2,
+      "chord_events": [["D4", "A4"]],
+      "num_chord_events": 1
+    },
+    "5E": {
+      "prompt_file": "prompts/level5/prompt_5e.txt",
+      "notes": ["C4", "E4", "G4", "D4", "F4", "A4"],
+      "midis": [60, 64, 67, 62, 65, 69],
+      "num_notes": 6,
+      "chord_events": [["C4", "E4", "G4"], ["D4", "F4", "A4"]],
+      "num_chord_events": 2
     }
   }
 }

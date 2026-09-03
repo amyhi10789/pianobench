@@ -5,6 +5,14 @@
     {
       "id": "gemini",
       "display_name": "Gemini"
+    },
+    {
+      "id": "cosmos3",
+      "display_name": "Cosmos 3"
+    },
+    {
+      "id": "minimax-h3",
+      "display_name": "MiniMax H3"
     }
   ],
   "evaluations": [
@@ -14,23 +22,23 @@
       "level": 1,
       "model_id": "gemini",
       "video_path": "videos/gemini/level1/1a.mp4",
-      "notes": "Example Gemini output for Prompt 1A"
+      "notes": "Gemini output for Prompt 1A"
     },
     {
-      "id": "eval_1b_gemini",
-      "prompt_id": "1B",
-      "level": 1,
-      "model_id": "gemini",
-      "video_path": "videos/gemini/level1/1b-1.mp4",
-      "notes": "Example Gemini output for Prompt 1B"
-    },
-    {
-      "id": "eval_1b_gemini",
+      "id": "eval_1b_gemini_best",
       "prompt_id": "1B",
       "level": 1,
       "model_id": "gemini",
       "video_path": "videos/gemini/level1/1b_best.mp4",
-      "notes": "Example Gemini output for Prompt 1B (better)"
+      "notes": "Gemini output for Prompt 1B (best)"
+    },
+    {
+      "id": "eval_1b_gemini_1",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/1b-1.mp4",
+      "notes": "Gemini output for Prompt 1B (1)"
     },
     {
       "id": "eval_1c_gemini",
@@ -38,7 +46,23 @@
       "level": 1,
       "model_id": "gemini",
       "video_path": "videos/gemini/level1/1c.mp4",
-      "notes": "Example Gemini output for Prompt 1C"
+      "notes": "Gemini output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_gemini",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/1d.mp4",
+      "notes": "Gemini output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_gemini",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level1/1e.mp4",
+      "notes": "Gemini output for Prompt 1E"
     },
     {
       "id": "eval_2a_gemini",
@@ -46,7 +70,7 @@
       "level": 2,
       "model_id": "gemini",
       "video_path": "videos/gemini/level2/2a.mp4",
-      "notes": "Example Gemini output for Prompt 2A"
+      "notes": "Gemini output for Prompt 2A"
     },
     {
       "id": "eval_2b_gemini",
@@ -54,7 +78,7 @@
       "level": 2,
       "model_id": "gemini",
       "video_path": "videos/gemini/level2/2b.mp4",
-      "notes": "Example Gemini output for Prompt 2B"
+      "notes": "Gemini output for Prompt 2B"
     },
     {
       "id": "eval_2c_gemini",
@@ -62,7 +86,23 @@
       "level": 2,
       "model_id": "gemini",
       "video_path": "videos/gemini/level2/2c.mp4",
-      "notes": "Example Gemini output for Prompt 2C"
+      "notes": "Gemini output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_gemini",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level2/2d.mp4",
+      "notes": "Gemini output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_gemini",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level2/2e.mp4",
+      "notes": "Gemini output for Prompt 2E"
     },
     {
       "id": "eval_3a_gemini",
@@ -70,7 +110,7 @@
       "level": 3,
       "model_id": "gemini",
       "video_path": "videos/gemini/level3/3a.mp4",
-      "notes": "Example Gemini output for Prompt 3A"
+      "notes": "Gemini output for Prompt 3A"
     },
     {
       "id": "eval_3b_gemini",
@@ -78,7 +118,7 @@
       "level": 3,
       "model_id": "gemini",
       "video_path": "videos/gemini/level3/3b.mp4",
-      "notes": "Example Gemini output for Prompt 3B"
+      "notes": "Gemini output for Prompt 3B"
     },
     {
       "id": "eval_3c_gemini",
@@ -86,7 +126,23 @@
       "level": 3,
       "model_id": "gemini",
       "video_path": "videos/gemini/level3/3c.mp4",
-      "notes": "Example Gemini output for Prompt 3C"
+      "notes": "Gemini output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_gemini",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level3/3d.mp4",
+      "notes": "Gemini output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_gemini",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level3/3e.mp4",
+      "notes": "Gemini output for Prompt 3E"
     },
     {
       "id": "eval_4a_gemini",
@@ -94,15 +150,15 @@
       "level": 4,
       "model_id": "gemini",
       "video_path": "videos/gemini/level4/4a.mp4",
-      "notes": "Example Gemini output for Prompt 4A"
+      "notes": "Gemini output for Prompt 4A"
     },
     {
       "id": "eval_4b_gemini",
       "prompt_id": "4B",
       "level": 4,
       "model_id": "gemini",
-      "video_path": "videos/gemini/level4/4B.mp4",
-      "notes": "Example Gemini output for Prompt 4B"
+      "video_path": "videos/gemini/level4/4b.mp4",
+      "notes": "Gemini output for Prompt 4B"
     },
     {
       "id": "eval_4c_gemini",
@@ -110,7 +166,23 @@
       "level": 4,
       "model_id": "gemini",
       "video_path": "videos/gemini/level4/4c.mp4",
-      "notes": "Example Gemini output for Prompt 4C"
+      "notes": "Gemini output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_gemini",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level4/4d.mp4",
+      "notes": "Gemini output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_gemini",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level4/4e.mp4",
+      "notes": "Gemini output for Prompt 4E"
     },
     {
       "id": "eval_5a_gemini",
@@ -118,7 +190,7 @@
       "level": 5,
       "model_id": "gemini",
       "video_path": "videos/gemini/level5/5a.mp4",
-      "notes": "Example Gemini output for Prompt 5A"
+      "notes": "Gemini output for Prompt 5A"
     },
     {
       "id": "eval_5b_gemini",
@@ -126,7 +198,7 @@
       "level": 5,
       "model_id": "gemini",
       "video_path": "videos/gemini/level5/5b.mp4",
-      "notes": "Example Gemini output for Prompt 5B"
+      "notes": "Gemini output for Prompt 5B"
     },
     {
       "id": "eval_5c_gemini",
@@ -134,7 +206,415 @@
       "level": 5,
       "model_id": "gemini",
       "video_path": "videos/gemini/level5/5c.mp4",
-      "notes": "Example Gemini output for Prompt 5C"
+      "notes": "Gemini output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_gemini",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level5/5d.mp4",
+      "notes": "Gemini output for Prompt 5D"
+    },
+    {
+      "id": "eval_1a_cosmos3",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level1/1a.mp4",
+      "notes": "Cosmos 3 output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_cosmos3",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level1/1b.mp4",
+      "notes": "Cosmos 3 output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_cosmos3",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level1/1c.mp4",
+      "notes": "Cosmos 3 output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_cosmos3",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level1/1d.mp4",
+      "notes": "Cosmos 3 output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_cosmos3",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level1/1e.mp4",
+      "notes": "Cosmos 3 output for Prompt 1E"
+    },
+    {
+      "id": "eval_2a_cosmos3",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level2/2a.mp4",
+      "notes": "Cosmos 3 output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_cosmos3",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level2/2b.mp4",
+      "notes": "Cosmos 3 output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_cosmos3",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level2/2c.mp4",
+      "notes": "Cosmos 3 output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_cosmos3",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level2/2d.mp4",
+      "notes": "Cosmos 3 output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_cosmos3",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level2/2e.mp4",
+      "notes": "Cosmos 3 output for Prompt 2E"
+    },
+    {
+      "id": "eval_3a_cosmos3",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level3/3a.mp4",
+      "notes": "Cosmos 3 output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_cosmos3",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level3/3b.mp4",
+      "notes": "Cosmos 3 output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_cosmos3",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level3/3c.mp4",
+      "notes": "Cosmos 3 output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_cosmos3",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level3/3d.mp4",
+      "notes": "Cosmos 3 output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_cosmos3",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level3/3e.mp4",
+      "notes": "Cosmos 3 output for Prompt 3E"
+    },
+    {
+      "id": "eval_4a_cosmos3",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level4/4a.mp4",
+      "notes": "Cosmos 3 output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_cosmos3",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level4/4b.mp4",
+      "notes": "Cosmos 3 output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_cosmos3",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level4/4c.mp4",
+      "notes": "Cosmos 3 output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_cosmos3",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level4/4d.mp4",
+      "notes": "Cosmos 3 output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_cosmos3",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level4/4e.mp4",
+      "notes": "Cosmos 3 output for Prompt 4E"
+    },
+    {
+      "id": "eval_5a_cosmos3",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level5/5a.mp4",
+      "notes": "Cosmos 3 output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_cosmos3",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level5/5b.mp4",
+      "notes": "Cosmos 3 output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_cosmos3",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level5/5c.mp4",
+      "notes": "Cosmos 3 output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_cosmos3",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level5/5d.mp4",
+      "notes": "Cosmos 3 output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_cosmos3",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "cosmos3",
+      "video_path": "videos/cosmos3/level5/5e.mp4",
+      "notes": "Cosmos 3 output for Prompt 5E"
+    },
+    {
+      "id": "eval_1a_minimax_h3",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level1/1a.mp4",
+      "notes": "MiniMax H3 output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_minimax_h3",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level1/1b.mp4",
+      "notes": "MiniMax H3 output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_minimax_h3",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level1/1c.mp4",
+      "notes": "MiniMax H3 output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_minimax_h3",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level1/1d.mp4",
+      "notes": "MiniMax H3 output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_minimax_h3",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level1/1e.mp4",
+      "notes": "MiniMax H3 output for Prompt 1E"
+    },
+    {
+      "id": "eval_2a_minimax_h3",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2a.mp4",
+      "notes": "MiniMax H3 output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_minimax_h3",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2b.mp4",
+      "notes": "MiniMax H3 output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_minimax_h3",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2c.mp4",
+      "notes": "MiniMax H3 output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_minimax_h3",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2d.mp4",
+      "notes": "MiniMax H3 output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_minimax_h3",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2e.mp4",
+      "notes": "MiniMax H3 output for Prompt 2E"
+    },
+    {
+      "id": "eval_3a_minimax_h3",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level3/3a.mp4",
+      "notes": "MiniMax H3 output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_minimax_h3",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level3/3b.mp4",
+      "notes": "MiniMax H3 output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_minimax_h3",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level3/3c.mp4",
+      "notes": "MiniMax H3 output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_minimax_h3",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level3/3d.mp4",
+      "notes": "MiniMax H3 output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_minimax_h3",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level3/3e.mp4",
+      "notes": "MiniMax H3 output for Prompt 3E"
+    },
+    {
+      "id": "eval_4a_minimax_h3",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level4/4a.mp4",
+      "notes": "MiniMax H3 output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_minimax_h3",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level4/4b.mp4",
+      "notes": "MiniMax H3 output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_minimax_h3",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level4/4c.mp4",
+      "notes": "MiniMax H3 output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_minimax_h3",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level4/4d.mp4",
+      "notes": "MiniMax H3 output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_minimax_h3",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level4/4e.mp4",
+      "notes": "MiniMax H3 output for Prompt 4E"
+    },
+    {
+      "id": "eval_5a_minimax_h3",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level5/5a.mp4",
+      "notes": "MiniMax H3 output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_minimax_h3",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level5/5b.mp4",
+      "notes": "MiniMax H3 output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_minimax_h3",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level5/5c.mp4",
+      "notes": "MiniMax H3 output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_minimax_h3",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level5/5d.mp4",
+      "notes": "MiniMax H3 output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_minimax_h3",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level5/5e.mp4",
+      "notes": "MiniMax H3 output for Prompt 5E"
     }
   ]
 }

@@ -15,6 +15,18 @@
       "midis": [60, 62, 64, 65],
       "num_notes": 4
     },
+    "2D": {
+      "prompt_file": "prompts/level2/prompt_2d.txt",
+      "notes": ["D4", "E4", "G4", "A4"],
+      "midis": [62, 64, 67, 69],
+      "num_notes": 4
+    },
+    "2E": {
+      "prompt_file": "prompts/level2/prompt_2e.txt",
+      "notes": ["C4", "D4", "F4", "A4"],
+      "midis": [60, 62, 65, 69],
+      "num_notes": 4
+    },
     "2B": {
       "prompt_file": "prompts/level2/prompt_2b.txt",
       "notes": ["C4", "E4", "G4"],

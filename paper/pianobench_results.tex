@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+
+\title{PianoBench: Measuring Musical and Audio--Visual Fidelity in Text-to-Video Piano Generation}
+\author{Author Name}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Text-to-video systems can produce visually plausible performances while failing to obey the symbolic, physical, and temporal constraints of musical actions. We present PianoBench, a task-oriented framework for evaluating whether generated piano videos contain the requested pitches, visible key presses, and synchronization between sound and motion. The benchmark organizes 15 prompts into five task families---single notes, ascending sequences, descending sequences, repeated notes, and chords---and evaluates 16 generated Gemini clips, including two outputs for one prompt. Audio accuracy combines note-count, pitch, order, onset-time, and duration scores; video accuracy evaluates visible note identity and performance constraints from sampled frames; and audio--visual alignment matches detected acoustic onsets to visual press events. These metrics are combined with weights of 0.35, 0.35, and 0.30, respectively. On the evaluated set, mean audio accuracy was 0.621, mean video accuracy was 0.654, and mean audio--visual alignment was 0.272, yielding a mean overall score of 0.528. Single-note clips performed best (mean overall score 0.728), whereas the remaining task families averaged 0.432--0.474. Chord clips received high visual scores (mean 0.950) but low audio accuracy (0.384) and zero measured alignment, revealing that surface-level visual compliance does not imply musically correct or synchronized generation. These results motivate multimodal, event-level evaluation rather than judgments based only on visual realism.
+\end{abstract}
+
+\section{Evaluation Protocol}
+
+Each clip is scored on a scale from 0 to 1. The overall score is
+\[
+  S_{\mathrm{overall}} =
+  0.35S_{\mathrm{audio}} +
+  0.35S_{\mathrm{video}} +
+  0.30S_{\mathrm{AV}}.
+\]
+Audio analysis uses onset detection and pitch estimation, with a separate multipitch path for chords. Video analysis uses a vision--language model to inspect sampled frames near candidate press events. Audio--visual alignment pairs acoustic onsets with visual press times and decreases from full credit to zero over a 0.5-second lag. The results below reproduce the values stored by \texttt{evaluation/evaluate.py} in \texttt{evaluation/results/scores.csv}.
+
+\section{Results}
+
+\begin{table}[htbp]
+  \centering
+  \caption{PianoBench scores for the 16 evaluated Gemini clips. A, V, and AV denote audio accuracy, video accuracy, and audio--visual alignment. Prompt 1B has two independently generated clips, labeled (a) and (b). All values are in $[0,1]$; higher is better.}
+  \label{tab:pianobench-results}
+  \small
+  \setlength{\tabcolsep}{4.5pt}
+  \begin{tabular}{@{}llp{3.6cm}rrrr@{}}
+    \toprule
+    Prompt & Task family & Target event(s) & A & V & AV & Overall \\
+    \midrule
+    1A     & Single       & C4                         & 0.986 & 0.550 & 0.740 & 0.760 \\
+    1B (a) & Single       & E4                         & 0.680 & 0.575 & 0.854 & 0.695 \\
+    1B (b) & Single       & E4                         & 0.814 & 0.600 & 0.661 & 0.693 \\
+    1C     & Single       & G4                         & 0.943 & 0.600 & 0.754 & 0.766 \\
+    \addlinespace
+    2A     & Ascending    & C4--D4--E4--F4             & 0.631 & 0.600 & 0.301 & 0.521 \\
+    2B     & Ascending    & C4--E4--G4                 & 0.515 & 0.350 & 0.000 & 0.303 \\
+    2C     & Ascending    & F4--G4--A4--B4             & 0.537 & 0.650 & 0.188 & 0.472 \\
+    \addlinespace
+    3A     & Descending   & F4--E4--D4--C4             & 0.588 & 1.000 & 0.567 & 0.726 \\
+    3B     & Descending   & G4--E4--C4                 & 0.528 & 0.533 & 0.000 & 0.371 \\
+    3C     & Descending   & B4--A4--G4--F4             & 0.450 & 0.475 & 0.000 & 0.324 \\
+    \addlinespace
+    4A     & Repeated     & C4--C4--C4                 & 0.708 & 0.533 & 0.075 & 0.457 \\
+    4B     & Repeated     & E4--E4--E4--E4             & 0.797 & 0.475 & 0.080 & 0.469 \\
+    4C     & Repeated     & C4--C4--E4--C4             & 0.603 & 0.675 & 0.126 & 0.485 \\
+    \addlinespace
+    5A     & Chord        & C4+E4                      & 0.403 & 0.850 & 0.000 & 0.439 \\
+    5B     & Chord        & C4+E4+G4                   & 0.358 & 1.000 & 0.000 & 0.475 \\
+    5C     & Chords       & (C4+E4), then (F4+A4)      & 0.390 & 1.000 & 0.000 & 0.486 \\
+    \midrule
+    \multicolumn{3}{r}{\textit{Mean}}                 & 0.621 & 0.654 & 0.272 & 0.528 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The highest overall score was 0.766 for Prompt 1C, while the lowest was 0.303 for Prompt 2B. The largest performance gap was between video accuracy and audio--visual alignment: several clips appeared to show the requested keys but did not align their visible press times with the detected sound events. This gap was most pronounced for chords, for which the mean video score was 0.950 but all three alignment scores were zero.
+
+\paragraph{Limitations.}
+This is a preliminary, single-model evaluation with a small and uneven sample: Prompt 1B has two clips, while every other evaluated prompt has one. The repository defines additional prompts that are not represented in the current manifest. Moreover, video accuracy depends on sampled-frame vision--language analysis, and the audio pipeline uses heuristic onset, monophonic pitch, and chord-detection procedures. The reported scores therefore characterize this saved evaluation run and should not be interpreted as a general ranking of text-to-video models without broader model coverage and human calibration.
+
+\end{document}

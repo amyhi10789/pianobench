@@ -11,7 +11,7 @@
   },
   "prompts": {
     "1A": {
-      "prompt_file": "prompts/level1/prompt_1a_middle_c.txt",
+      "prompt_file": "prompts/level1/prompt_1a.txt",
       "note": "C4",
       "midi": 60,
       "press_time": 3.0,
@@ -20,7 +20,7 @@
       "num_notes": 1
     },
     "1B": {
-      "prompt_file": "prompts/level1/prompt_1b_e4.txt",
+      "prompt_file": "prompts/level1/prompt_1b.txt",
       "note": "E4",
       "midi": 64,
       "press_time": 3.0,
@@ -29,9 +29,27 @@
       "num_notes": 1
     },
     "1C": {
-      "prompt_file": "prompts/level1/prompt_1c_g4.txt",
+      "prompt_file": "prompts/level1/prompt_1c.txt",
       "note": "G4",
       "midi": 67,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1
+    },
+    "1D": {
+      "prompt_file": "prompts/level1/prompt_1d.txt",
+      "note": "D4",
+      "midi": 62,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1
+    },
+    "1E": {
+      "prompt_file": "prompts/level1/prompt_1e.txt",
+      "note": "A4",
+      "midi": 69,
       "press_time": 3.0,
       "hold_seconds": 0.5,
       "release_time": 3.5,
