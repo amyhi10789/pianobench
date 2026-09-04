@@ -13,8 +13,5 @@ __pycache__/
 .env
 
 # Local evaluation outputs (keep folder via .gitkeep if needed)
-evaluation/results/scores.json
-evaluation/results/scores.csv
-
 # Large media is kept in-repo for the class kit; uncomment to ignore if needed:
 # data/videos/*.mp4
