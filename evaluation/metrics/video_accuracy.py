@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -17,6 +18,7 @@ from typing import Any
 DEFAULT_MODEL = "gpt-5.4-mini"
 FRAME_OFFSETS = (-0.60, -0.30, -0.10, 0.10, 0.30, 0.60)
 SEQUENCE_FRAME_INTERVAL = 0.25
+FFMPEG_PROBE_TIMEOUT_SECONDS = 30
 
 
 @dataclass
@@ -59,6 +61,31 @@ def _extract_frame(video_path: Path, timestamp: float, output_path: Path) -> Non
         raise RuntimeError(f"ffmpeg did not produce a frame at {timestamp:.3f}s")
 
 
+def _probe_video_duration(video_path: Path) -> float:
+    """Read the container duration reported by ffmpeg without decoding the clip."""
+    command = [_ffmpeg_executable(), "-hide_banner", "-i", str(video_path)]
+    completed = subprocess.run(
+        command,
+        check=False,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=FFMPEG_PROBE_TIMEOUT_SECONDS,
+    )
+    match = re.search(
+        r"Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)",
+        completed.stderr,
+    )
+    if not match:
+        raise RuntimeError(f"ffmpeg could not determine video duration for {video_path}")
+    hours, minutes, seconds = match.groups()
+    duration = int(hours) * 3600 + int(minutes) * 60 + float(seconds)
+    if duration <= 0:
+        raise RuntimeError(f"ffmpeg reported a non-positive duration for {video_path}")
+    return duration
+
+
 def _sample_frames(video_path: str, expected_time: float) -> list[tuple[float, str]]:
     return _sample_frames_at_times(
         video_path, [max(0.0, expected_time + offset) for offset in FRAME_OFFSETS]
@@ -85,11 +112,20 @@ def _sample_sequence_frames(
     video_path: str, duration_seconds: float = 8.0
 ) -> list[tuple[float, str]]:
     """Sample the active portion of a clip densely enough to see separate presses."""
+    actual_duration = _probe_video_duration(Path(video_path))
+    # Seeking at or extremely near the container endpoint may produce no frame.
+    # Keep half an interval of headroom and never sample beyond the real clip.
+    sampling_end = min(float(duration_seconds), actual_duration)
+    sampling_end -= SEQUENCE_FRAME_INTERVAL / 2
     timestamps: list[float] = []
     timestamp = 0.5
-    while timestamp < duration_seconds:
+    while timestamp < sampling_end:
         timestamps.append(round(timestamp, 3))
         timestamp += SEQUENCE_FRAME_INTERVAL
+    if not timestamps:
+        raise RuntimeError(
+            f"Video is too short for sequence sampling: {actual_duration:.3f}s"
+        )
     return _sample_frames_at_times(video_path, timestamps)
 
 

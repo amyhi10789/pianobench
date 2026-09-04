@@ -1,0 +1,28 @@
+{
+  "project": "pianobench",
+  "version": "0.1.0",
+  "models": [
+    {
+      "id": "minimax-h3",
+      "display_name": "MiniMax H3"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "eval_2a_minimax_h3",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2a.mp4",
+      "notes": "MiniMax H3 output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_minimax_h3",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "minimax-h3",
+      "video_path": "videos/minimax-h3/level2/2b.mp4",
+      "notes": "MiniMax H3 output for Prompt 2B"
+    }
+  ]
+}

@@ -25,20 +25,12 @@
       "notes": "Gemini output for Prompt 1A"
     },
     {
-      "id": "eval_1b_gemini_best",
+      "id": "eval_1b_gemini",
       "prompt_id": "1B",
       "level": 1,
       "model_id": "gemini",
-      "video_path": "videos/gemini/level1/1b_best.mp4",
-      "notes": "Gemini output for Prompt 1B (best)"
-    },
-    {
-      "id": "eval_1b_gemini_1",
-      "prompt_id": "1B",
-      "level": 1,
-      "model_id": "gemini",
-      "video_path": "videos/gemini/level1/1b-1.mp4",
-      "notes": "Gemini output for Prompt 1B (1)"
+      "video_path": "videos/gemini/level1/1b.mp4",
+      "notes": "Gemini output for Prompt 1B"
     },
     {
       "id": "eval_1c_gemini",
@@ -215,6 +207,14 @@
       "model_id": "gemini",
       "video_path": "videos/gemini/level5/5d.mp4",
       "notes": "Gemini output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_gemini",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "gemini",
+      "video_path": "videos/gemini/level5/5e.mp4",
+      "notes": "Gemini output for Prompt 5E"
     },
     {
       "id": "eval_1a_cosmos3",
