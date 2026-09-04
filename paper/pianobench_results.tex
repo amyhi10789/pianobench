@@ -32,7 +32,7 @@
 \maketitle
 
 \begin{abstract}
-Text-to-video systems are commonly judged by visual plausibility, yet a convincing performance may still violate the discrete actions, acoustic content, and cross-modal timing specified by a prompt. We introduce PianoBench, a benchmark for measuring instruction following in generated piano-performance videos. PianoBench contains 25 controlled prompts organized into five task families---single notes, ascending sequences, descending sequences, repeated notes, and chords---with machine-readable expectations for pitch, event count, order, simultaneity, timing, and physical key motion. The accompanying baseline suite contains 75 videos from Gemini, Cosmos 3, and MiniMax H3. Our evaluation decomposes performance into audio accuracy, video accuracy, and audio--visual alignment, then combines them with weights of 0.35, 0.35, and 0.30. On the two complete 25-video baselines, Gemini obtains a mean overall score of 0.550 and Cosmos 3 obtains 0.509. The decomposition exposes complementary failure modes: Gemini leads in audio accuracy (0.604 versus 0.438), whereas Cosmos 3 leads in video accuracy (0.733 versus 0.720) and alignment (0.331 versus 0.288). MiniMax H3 scores 0.598 overall on its five valid single-note measurements; its remaining 20 stored rows are explicitly marked as evaluator fallbacks and excluded from aggregate claims. PianoBench therefore contributes a reproducible, event-level protocol that separates looking correct, sounding correct, and being synchronized, enabling diagnostic comparison beyond holistic video-quality judgments.
+Text-to-video systems are commonly judged by visual plausibility, yet a convincing performance may still violate the discrete actions, acoustic content, and cross-modal timing specified by a prompt. We introduce PianoBench, a benchmark for measuring instruction following in generated piano-performance videos. PianoBench contains 25 controlled prompts organized into five task families---single notes, ascending sequences, descending sequences, repeated notes, and chords---with machine-readable expectations for pitch, event count, order, simultaneity, timing, and physical key motion. The baseline suite contains 75 videos from Gemini, Cosmos 3, and MiniMax H3, with 25 videos per model. Our evaluation decomposes performance into audio accuracy, video accuracy, and audio--visual alignment, then combines them with weights of 0.35, 0.35, and 0.30. Across the three 25-video baselines, the mean overall scores are Gemini (0.550), Cosmos 3 (0.509), MiniMax H3 (0.484). The component results reveal distinct strengths: Gemini leads audio accuracy (0.604); Cosmos 3 leads video accuracy (0.733); Cosmos 3 leads audio--visual alignment (0.331). PianoBench therefore contributes a reproducible, event-level protocol that separates looking correct, sounding correct, and being synchronized, enabling diagnostic comparison beyond holistic video-quality judgments.
 \end{abstract}
 
 \section{Benchmark Scope}
@@ -51,36 +51,36 @@ S_{\mathrm{overall}} =
 0.30S_{\mathrm{AV}}.
 \end{equation}
 
-The baseline reported here uses the checked-in outputs of \texttt{evaluation/evaluate.py} and the vision configuration \texttt{gpt-5.4-mini}. Table~\ref{tab:model-summary} reports macro averages over valid rows; Appendix~\ref{app:per-video} preserves every stored per-video score.
+The baseline reported here uses the checked-in outputs of \texttt{evaluation/evaluate.py} and the vision configuration \texttt{gpt-5.4-mini}. For the MiniMax H3 Level 2--5 recovery run, already-valid audio scores were retained, visual scoring was rerun after duration-aware frame sampling was introduced, and AV alignment was recomputed from freshly detected acoustic attacks. Table~\ref{tab:model-summary} reports macro averages over all 25 prompts per model; Appendix~\ref{app:per-video} preserves every per-video score.
 
 \section{Baseline Results}
 
 \begin{table}[htbp]
-  \caption{Model-level macro averages over rows with successful visual analysis. MiniMax H3 is reported only on its five single-note rows because its other stored rows are evaluator fallbacks.}
+  \caption{Model-level macro averages over all 25 benchmark prompts per model.}
   \label{tab:model-summary}
   \centering
   \begin{tabular}{@{}lrrrrr@{}}
     \toprule
-    Model & Valid $n$ & Audio & Video & AV align. & Overall \\
+    Model & $n$ & Audio & Video & AV align. & Overall \\
     \midrule
     Gemini & 25 & 0.604 & 0.720 & 0.288 & 0.550 \\
     Cosmos 3 & 25 & 0.438 & 0.733 & 0.331 & 0.509 \\
-    MiniMax H3 (Level 1 only) & 5 & 0.487 & 0.665 & 0.651 & 0.598 \\
+    MiniMax H3 & 25 & 0.456 & 0.713 & 0.251 & 0.484 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-No single complete baseline dominates every metric. Gemini's 0.041 overall advantage over Cosmos 3 is driven by substantially stronger audio accuracy, while Cosmos 3 is slightly stronger visually and in synchronization. Difficulty is also modality dependent. Gemini's mean overall score falls from 0.711 on single notes to 0.453 on chords, largely because chord audio accuracy is 0.390 and chord alignment is 0.074 even though chord video accuracy is 0.840. Cosmos 3 instead achieves its highest family-level overall score on chords (0.575), supported by video accuracy of 0.802 and alignment of 0.517. These contrasts illustrate why a benchmark for physically grounded audiovisual generation should expose component metrics rather than only a single quality score.
+Across all 25 prompts, the overall ranking is Gemini (0.550), Cosmos 3 (0.509), MiniMax H3 (0.484). Gemini leads audio accuracy (0.604); Cosmos 3 leads video accuracy (0.733); Cosmos 3 leads audio--visual alignment (0.331). The family-level results are likewise diagnostic: Gemini ranges from 0.453 on chord prompts to 0.711 on single note prompts; Cosmos 3 ranges from 0.416 on single note prompts to 0.575 on chord prompts; MiniMax H3 ranges from 0.398 on repeated prompts to 0.598 on single note prompts. These differences show why a benchmark for physically grounded audiovisual generation should expose component and task-family metrics rather than only a single holistic quality score.
 
 \section{Limitations and Intended Use}
 
-PianoBench is a compact diagnostic benchmark, not a comprehensive measure of video-generation quality. It covers one instrument, a constrained camera configuration, white-key pitches in the middle register, and three model baselines. Audio scoring relies on heuristic signal processing, while visual scoring relies on sampled frames and a vision--language judge; both require calibration against human annotations. The current baseline also contains 20 explicitly marked MiniMax H3 fallback rows that must be rerun before a complete three-model ranking is valid. Future benchmark releases should add multiple generations per prompt, diverse keyboards and viewpoints, human inter-rater measurements, uncertainty estimates, and versioned evaluator outputs.
+PianoBench is a compact diagnostic benchmark, not a comprehensive measure of video-generation quality. It covers one instrument, a constrained camera configuration, white-key pitches in the middle register, three model baselines, and one generated video per prompt--model pair. Audio scoring relies on heuristic signal processing, while visual scoring relies on sampled frames and a vision--language judge; both require calibration against human annotations. Future benchmark releases should add multiple generations per prompt, diverse keyboards and viewpoints, human inter-rater measurements, uncertainty estimates, and versioned evaluator outputs.
 
 The benchmark should be used diagnostically: audio, video, and alignment scores identify different failure mechanisms, while the overall score provides a convenience summary under declared weights. Results should not be interpreted as a general-purpose ranking of the underlying generation systems beyond this prompt suite and evaluator version.
 
 \section{Reproducibility}
 
-The benchmark manifest is stored in \texttt{data/manifest.json}; prompt expectations are stored under \texttt{data/expectations}; and the complete detailed and tabular outputs are stored in \texttt{evaluation/results/scores.json} and \texttt{evaluation/results/scores.csv}. Running \texttt{python evaluation/evaluate.py} from the repository root regenerates the results when the required audio dependencies, FFmpeg, and vision API credentials are available.
+The benchmark manifest is stored in \texttt{data/manifest.json}; prompt expectations are stored under \texttt{data/expectations}; and the complete detailed and tabular outputs are stored in \texttt{evaluation/results/scores.json} and \texttt{evaluation/results/scores.csv}. Running \texttt{python evaluation/evaluate.py} from the repository root regenerates the results when the required audio dependencies, FFmpeg, and vision API credentials are available. The targeted recovery procedure is recorded in \texttt{evaluation/retry\_visual\_scores.py}. Running \texttt{python paper/update\_pianobench\_results.py} then synchronizes every reported table value and aggregate with the canonical JSON artifact.
 
 \begin{ack}
 Do not include this section in the anonymized submission, only in the final paper.
@@ -100,7 +100,7 @@ Do not include this section in the anonymized submission, only in the final pape
 \section{Per-Video Baseline Scores}
 \label{app:per-video}
 
-Tables~\ref{tab:gemini-results}--\ref{tab:minimax-results} preserve every stored per-video score for the three baselines, supporting Section~3.
+Tables~\ref{tab:gemini-results}--\ref{tab:minimax-results} report all 75 per-video baseline scores, with 25 prompt results for each model.
 
 \subsection{Gemini}
 
@@ -246,33 +246,31 @@ Prompt & Family & Target event(s) & A & V & AV & Overall \\
 1D & Single note & D4 & 0.415 & 1.000 & 0.847 & 0.749 \\
 1E & Single note & A4 & 0.774 & 0.600 & 0.916 & 0.756 \\
 \addlinespace
-2A\textsuperscript{$\dagger$} & Ascending & C4--D4--E4--F4 & 0.375 & 0.650 & 0.000 & 0.359 \\
-2B\textsuperscript{$\dagger$} & Ascending & C4--E4--G4 & 0.433 & 0.650 & 0.000 & 0.379 \\
-2C\textsuperscript{$\dagger$} & Ascending & F4--G4--A4--B4 & 0.450 & 0.650 & 0.000 & 0.385 \\
-2D\textsuperscript{$\dagger$} & Ascending & D4--E4--G4--A4 & 0.491 & 0.650 & 0.000 & 0.399 \\
-2E\textsuperscript{$\dagger$} & Ascending & C4--D4--F4--A4 & 0.482 & 0.650 & 0.000 & 0.396 \\
+2A & Ascending & C4--D4--E4--F4 & 0.375 & 1.000 & 0.005 & 0.483 \\
+2B & Ascending & C4--E4--G4 & 0.433 & 0.567 & 0.068 & 0.370 \\
+2C & Ascending & F4--G4--A4--B4 & 0.450 & 1.000 & 0.512 & 0.661 \\
+2D & Ascending & D4--E4--G4--A4 & 0.491 & 0.625 & 0.157 & 0.438 \\
+2E & Ascending & C4--D4--F4--A4 & 0.482 & 1.000 & 0.460 & 0.657 \\
 \addlinespace
-3A\textsuperscript{$\dagger$} & Descending & F4--E4--D4--C4 & 0.487 & 0.650 & 0.000 & 0.398 \\
-3B\textsuperscript{$\dagger$} & Descending & G4--E4--C4 & 0.517 & 0.650 & 0.000 & 0.408 \\
-3C\textsuperscript{$\dagger$} & Descending & B4--A4--G4--F4 & 0.500 & 0.650 & 0.000 & 0.402 \\
-3D\textsuperscript{$\dagger$} & Descending & A4--F4--E4--C4 & 0.616 & 0.650 & 0.000 & 0.443 \\
-3E\textsuperscript{$\dagger$} & Descending & B4--G4--D4 & 0.571 & 0.650 & 0.000 & 0.427 \\
+3A & Descending & F4--E4--D4--C4 & 0.487 & 1.000 & 0.005 & 0.522 \\
+3B & Descending & G4--E4--C4 & 0.517 & 0.567 & 0.281 & 0.464 \\
+3C & Descending & B4--A4--G4--F4 & 0.500 & 1.000 & 0.104 & 0.556 \\
+3D & Descending & A4--F4--E4--C4 & 0.616 & 0.575 & 0.099 & 0.447 \\
+3E & Descending & B4--G4--D4 & 0.571 & 0.433 & 0.156 & 0.398 \\
 \addlinespace
-4A\textsuperscript{$\dagger$} & Repeated & C4--C4--C4 & 0.454 & 0.650 & 0.000 & 0.386 \\
-4B\textsuperscript{$\dagger$} & Repeated & E4--E4--E4--E4 & 0.450 & 0.650 & 0.000 & 0.385 \\
-4C\textsuperscript{$\dagger$} & Repeated & C4--C4--E4--C4 & 0.438 & 0.650 & 0.000 & 0.381 \\
-4D\textsuperscript{$\dagger$} & Repeated & G4--G4--G4 & 0.542 & 0.650 & 0.000 & 0.417 \\
-4E\textsuperscript{$\dagger$} & Repeated & E4--G4--G4--E4 & 0.525 & 0.650 & 0.000 & 0.411 \\
+4A & Repeated & C4--C4--C4 & 0.454 & 0.533 & 0.256 & 0.422 \\
+4B & Repeated & E4--E4--E4--E4 & 0.450 & 0.475 & 0.099 & 0.353 \\
+4C & Repeated & C4--C4--E4--C4 & 0.438 & 0.450 & 0.113 & 0.345 \\
+4D & Repeated & G4--G4--G4 & 0.542 & 0.533 & 0.157 & 0.423 \\
+4E & Repeated & E4--G4--G4--E4 & 0.525 & 0.650 & 0.111 & 0.445 \\
 \addlinespace
-5A\textsuperscript{$\dagger$} & Chord & C4+E4 & 0.256 & 0.650 & 0.000 & 0.317 \\
-5B\textsuperscript{$\dagger$} & Chord & C4+E4+G4 & 0.294 & 0.650 & 0.000 & 0.330 \\
-5C\textsuperscript{$\dagger$} & Chord & (C4+E4), then (F4+A4) & 0.311 & 0.650 & 0.000 & 0.336 \\
-5D\textsuperscript{$\dagger$} & Chord & D4+A4 & 0.401 & 0.650 & 0.000 & 0.368 \\
-5E\textsuperscript{$\dagger$} & Chord & (C4+E4+G4), then (D4+F4+A4) & 0.368 & 0.650 & 0.000 & 0.356 \\
+5A & Chord & C4+E4 & 0.256 & 0.600 & 0.060 & 0.318 \\
+5B & Chord & C4+E4+G4 & 0.294 & 1.000 & 0.032 & 0.462 \\
+5C & Chord & (C4+E4), then (F4+A4) & 0.311 & 1.000 & 0.269 & 0.540 \\
+5D & Chord & D4+A4 & 0.401 & 0.850 & 0.036 & 0.449 \\
+5E & Chord & (C4+E4+G4), then (D4+F4+A4) & 0.368 & 0.650 & 0.036 & 0.367 \\
 \midrule
-\multicolumn{3}{r}{\textit{Measured-row mean ($n=5$)}} & 0.487 & 0.665 & 0.651 & 0.598 \\
+\multicolumn{3}{r}{\textit{Mean ($n=25$)}} & 0.456 & 0.713 & 0.251 & 0.484 \\
 \end{longtable}
-
-\noindent\textsuperscript{$\dagger$} For MiniMax H3 Prompts 2A--5E, the stored video value 0.650 is the evaluator's demo fallback after frame extraction exceeded the approximately 5.18-second clip duration. The empty visual-event output then forced AV alignment to 0.000, and the stored overall score consequently incorporates invalid components. These rows are included for artifact completeness but are not benchmark measurements and are excluded from all aggregate claims.
 
 \end{document}
