@@ -13,6 +13,22 @@
     {
       "id": "minimax-h3",
       "display_name": "MiniMax H3"
+    },
+    {
+      "id": "cosmos3-super",
+      "display_name": "Cosmos 3 Super"
+    },
+    {
+      "id": "joyai-echo",
+      "display_name": "JoyAI Echo"
+    },
+    {
+      "id": "dreamx-creator",
+      "display_name": "DreamX Creator"
+    },
+    {
+      "id": "ltx-2.5",
+      "display_name": "LTX-2.5"
     }
   ],
   "evaluations": [
@@ -615,6 +631,806 @@
       "model_id": "minimax-h3",
       "video_path": "videos/minimax-h3/level5/5e.mp4",
       "notes": "MiniMax H3 output for Prompt 5E"
+    },
+    {
+      "id": "eval_1a_cosmos3_super",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level1/1a.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_cosmos3_super",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level1/1b.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_cosmos3_super",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level1/1c.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_cosmos3_super",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level1/1d.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_cosmos3_super",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level1/1e.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 1E"
+    },
+    {
+      "id": "eval_2a_cosmos3_super",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level2/2a.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_cosmos3_super",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level2/2b.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_cosmos3_super",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level2/2c.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_cosmos3_super",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level2/2d.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_cosmos3_super",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level2/2e.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 2E"
+    },
+    {
+      "id": "eval_3a_cosmos3_super",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level3/3a.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_cosmos3_super",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level3/3b.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_cosmos3_super",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level3/3c.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_cosmos3_super",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level3/3d.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_cosmos3_super",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level3/3e.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 3E"
+    },
+    {
+      "id": "eval_4a_cosmos3_super",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level4/4a.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_cosmos3_super",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level4/4b.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_cosmos3_super",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level4/4c.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_cosmos3_super",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level4/4d.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_cosmos3_super",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level4/4e.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 4E"
+    },
+    {
+      "id": "eval_5a_cosmos3_super",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level5/5a.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_cosmos3_super",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level5/5b.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_cosmos3_super",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level5/5c.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_cosmos3_super",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level5/5d.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_cosmos3_super",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "cosmos3-super",
+      "video_path": "videos/cosmos3-super/level5/5e.mp4",
+      "notes": "Cosmos 3 Super output for Prompt 5E"
+    },
+    {
+      "id": "eval_1a_joyai_echo",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level1/1a.mp4",
+      "notes": "JoyAI Echo output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_joyai_echo",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level1/1b.mp4",
+      "notes": "JoyAI Echo output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_joyai_echo",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level1/1c.mp4",
+      "notes": "JoyAI Echo output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_joyai_echo",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level1/1d.mp4",
+      "notes": "JoyAI Echo output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_joyai_echo",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level1/1e.mp4",
+      "notes": "JoyAI Echo output for Prompt 1E"
+    },
+    {
+      "id": "eval_2a_joyai_echo",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level2/2a.mp4",
+      "notes": "JoyAI Echo output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_joyai_echo",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level2/2b.mp4",
+      "notes": "JoyAI Echo output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_joyai_echo",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level2/2c.mp4",
+      "notes": "JoyAI Echo output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_joyai_echo",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level2/2d.mp4",
+      "notes": "JoyAI Echo output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_joyai_echo",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level2/2e.mp4",
+      "notes": "JoyAI Echo output for Prompt 2E"
+    },
+    {
+      "id": "eval_3a_joyai_echo",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level3/3a.mp4",
+      "notes": "JoyAI Echo output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_joyai_echo",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level3/3b.mp4",
+      "notes": "JoyAI Echo output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_joyai_echo",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level3/3c.mp4",
+      "notes": "JoyAI Echo output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_joyai_echo",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level3/3d.mp4",
+      "notes": "JoyAI Echo output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_joyai_echo",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level3/3e.mp4",
+      "notes": "JoyAI Echo output for Prompt 3E"
+    },
+    {
+      "id": "eval_4a_joyai_echo",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level4/4a.mp4",
+      "notes": "JoyAI Echo output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_joyai_echo",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level4/4b.mp4",
+      "notes": "JoyAI Echo output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_joyai_echo",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level4/4c.mp4",
+      "notes": "JoyAI Echo output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_joyai_echo",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level4/4d.mp4",
+      "notes": "JoyAI Echo output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_joyai_echo",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level4/4e.mp4",
+      "notes": "JoyAI Echo output for Prompt 4E"
+    },
+    {
+      "id": "eval_5a_joyai_echo",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level5/5a.mp4",
+      "notes": "JoyAI Echo output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_joyai_echo",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level5/5b.mp4",
+      "notes": "JoyAI Echo output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_joyai_echo",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level5/5c.mp4",
+      "notes": "JoyAI Echo output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_joyai_echo",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level5/5d.mp4",
+      "notes": "JoyAI Echo output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_joyai_echo",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "joyai-echo",
+      "video_path": "videos/joyai-echo/level5/5e.mp4",
+      "notes": "JoyAI Echo output for Prompt 5E"
+    },
+    {
+      "id": "eval_1a_dreamx_creator",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level1/1a.mp4",
+      "notes": "DreamX Creator output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_dreamx_creator",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level1/1b.mp4",
+      "notes": "DreamX Creator output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_dreamx_creator",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level1/1c.mp4",
+      "notes": "DreamX Creator output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_dreamx_creator",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level1/1d.mp4",
+      "notes": "DreamX Creator output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_dreamx_creator",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level1/1e.mp4",
+      "notes": "DreamX Creator output for Prompt 1E"
+    },
+    {
+      "id": "eval_2a_dreamx_creator",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level2/2a.mp4",
+      "notes": "DreamX Creator output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_dreamx_creator",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level2/2b.mp4",
+      "notes": "DreamX Creator output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_dreamx_creator",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level2/2c.mp4",
+      "notes": "DreamX Creator output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_dreamx_creator",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level2/2d.mp4",
+      "notes": "DreamX Creator output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_dreamx_creator",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level2/2e.mp4",
+      "notes": "DreamX Creator output for Prompt 2E"
+    },
+    {
+      "id": "eval_3a_dreamx_creator",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level3/3a.mp4",
+      "notes": "DreamX Creator output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_dreamx_creator",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level3/3b.mp4",
+      "notes": "DreamX Creator output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_dreamx_creator",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level3/3c.mp4",
+      "notes": "DreamX Creator output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_dreamx_creator",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level3/3d.mp4",
+      "notes": "DreamX Creator output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_dreamx_creator",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level3/3e.mp4",
+      "notes": "DreamX Creator output for Prompt 3E"
+    },
+    {
+      "id": "eval_4a_dreamx_creator",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level4/4a.mp4",
+      "notes": "DreamX Creator output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_dreamx_creator",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level4/4b.mp4",
+      "notes": "DreamX Creator output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_dreamx_creator",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level4/4c.mp4",
+      "notes": "DreamX Creator output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_dreamx_creator",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level4/4d.mp4",
+      "notes": "DreamX Creator output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_dreamx_creator",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level4/4e.mp4",
+      "notes": "DreamX Creator output for Prompt 4E"
+    },
+    {
+      "id": "eval_5a_dreamx_creator",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level5/5a.mp4",
+      "notes": "DreamX Creator output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_dreamx_creator",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level5/5b.mp4",
+      "notes": "DreamX Creator output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_dreamx_creator",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level5/5c.mp4",
+      "notes": "DreamX Creator output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_dreamx_creator",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level5/5d.mp4",
+      "notes": "DreamX Creator output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_dreamx_creator",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "dreamx-creator",
+      "video_path": "videos/dreamx-creator/level5/5e.mp4",
+      "notes": "DreamX Creator output for Prompt 5E"
+    },
+    {
+      "id": "eval_1a_ltx_2_5",
+      "prompt_id": "1A",
+      "level": 1,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level1/1a.mp4",
+      "notes": "LTX-2.5 output for Prompt 1A"
+    },
+    {
+      "id": "eval_1b_ltx_2_5",
+      "prompt_id": "1B",
+      "level": 1,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level1/1b.mp4",
+      "notes": "LTX-2.5 output for Prompt 1B"
+    },
+    {
+      "id": "eval_1c_ltx_2_5",
+      "prompt_id": "1C",
+      "level": 1,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level1/1c.mp4",
+      "notes": "LTX-2.5 output for Prompt 1C"
+    },
+    {
+      "id": "eval_1d_ltx_2_5",
+      "prompt_id": "1D",
+      "level": 1,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level1/1d.mp4",
+      "notes": "LTX-2.5 output for Prompt 1D"
+    },
+    {
+      "id": "eval_1e_ltx_2_5",
+      "prompt_id": "1E",
+      "level": 1,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level1/1e.mp4",
+      "notes": "LTX-2.5 output for Prompt 1E"
+    },
+    {
+      "id": "eval_2a_ltx_2_5",
+      "prompt_id": "2A",
+      "level": 2,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level2/2a.mp4",
+      "notes": "LTX-2.5 output for Prompt 2A"
+    },
+    {
+      "id": "eval_2b_ltx_2_5",
+      "prompt_id": "2B",
+      "level": 2,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level2/2b.mp4",
+      "notes": "LTX-2.5 output for Prompt 2B"
+    },
+    {
+      "id": "eval_2c_ltx_2_5",
+      "prompt_id": "2C",
+      "level": 2,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level2/2c.mp4",
+      "notes": "LTX-2.5 output for Prompt 2C"
+    },
+    {
+      "id": "eval_2d_ltx_2_5",
+      "prompt_id": "2D",
+      "level": 2,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level2/2d.mp4",
+      "notes": "LTX-2.5 output for Prompt 2D"
+    },
+    {
+      "id": "eval_2e_ltx_2_5",
+      "prompt_id": "2E",
+      "level": 2,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level2/2e.mp4",
+      "notes": "LTX-2.5 output for Prompt 2E"
+    },
+    {
+      "id": "eval_3a_ltx_2_5",
+      "prompt_id": "3A",
+      "level": 3,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level3/3a.mp4",
+      "notes": "LTX-2.5 output for Prompt 3A"
+    },
+    {
+      "id": "eval_3b_ltx_2_5",
+      "prompt_id": "3B",
+      "level": 3,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level3/3b.mp4",
+      "notes": "LTX-2.5 output for Prompt 3B"
+    },
+    {
+      "id": "eval_3c_ltx_2_5",
+      "prompt_id": "3C",
+      "level": 3,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level3/3c.mp4",
+      "notes": "LTX-2.5 output for Prompt 3C"
+    },
+    {
+      "id": "eval_3d_ltx_2_5",
+      "prompt_id": "3D",
+      "level": 3,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level3/3d.mp4",
+      "notes": "LTX-2.5 output for Prompt 3D"
+    },
+    {
+      "id": "eval_3e_ltx_2_5",
+      "prompt_id": "3E",
+      "level": 3,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level3/3e.mp4",
+      "notes": "LTX-2.5 output for Prompt 3E"
+    },
+    {
+      "id": "eval_4a_ltx_2_5",
+      "prompt_id": "4A",
+      "level": 4,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level4/4a.mp4",
+      "notes": "LTX-2.5 output for Prompt 4A"
+    },
+    {
+      "id": "eval_4b_ltx_2_5",
+      "prompt_id": "4B",
+      "level": 4,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level4/4b.mp4",
+      "notes": "LTX-2.5 output for Prompt 4B"
+    },
+    {
+      "id": "eval_4c_ltx_2_5",
+      "prompt_id": "4C",
+      "level": 4,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level4/4c.mp4",
+      "notes": "LTX-2.5 output for Prompt 4C"
+    },
+    {
+      "id": "eval_4d_ltx_2_5",
+      "prompt_id": "4D",
+      "level": 4,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level4/4d.mp4",
+      "notes": "LTX-2.5 output for Prompt 4D"
+    },
+    {
+      "id": "eval_4e_ltx_2_5",
+      "prompt_id": "4E",
+      "level": 4,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level4/4e.mp4",
+      "notes": "LTX-2.5 output for Prompt 4E"
+    },
+    {
+      "id": "eval_5a_ltx_2_5",
+      "prompt_id": "5A",
+      "level": 5,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level5/5a.mp4",
+      "notes": "LTX-2.5 output for Prompt 5A"
+    },
+    {
+      "id": "eval_5b_ltx_2_5",
+      "prompt_id": "5B",
+      "level": 5,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level5/5b.mp4",
+      "notes": "LTX-2.5 output for Prompt 5B"
+    },
+    {
+      "id": "eval_5c_ltx_2_5",
+      "prompt_id": "5C",
+      "level": 5,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level5/5c.mp4",
+      "notes": "LTX-2.5 output for Prompt 5C"
+    },
+    {
+      "id": "eval_5d_ltx_2_5",
+      "prompt_id": "5D",
+      "level": 5,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level5/5d.mp4",
+      "notes": "LTX-2.5 output for Prompt 5D"
+    },
+    {
+      "id": "eval_5e_ltx_2_5",
+      "prompt_id": "5E",
+      "level": 5,
+      "model_id": "ltx-2.5",
+      "video_path": "videos/ltx-2.5/level5/5e.mp4",
+      "notes": "LTX-2.5 output for Prompt 5E"
     }
   ]
 }

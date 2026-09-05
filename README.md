@@ -8,7 +8,7 @@ The current pilot contains:
 
 - 25 controlled prompts across five musical task families;
 - machine-readable target events for every prompt;
-- 75 generated videos: one selected output per prompt from Gemini, Cosmos 3, and MiniMax H3;
+- 175 generated videos: one selected output per prompt from Gemini, Cosmos 3, MiniMax H3, Cosmos 3 Super, JoyAI Echo, DreamX Creator, and LTX-2.5;
 - automatic audio, visual, and audio-visual alignment metrics; and
 - a LaTeX benchmark paper with model-level and per-video results.
 
@@ -68,10 +68,14 @@ These are macro averages over the 25 stored prompt results for each system in th
 | System label | Audio | Visual | AV alignment | Overall |
 |---|---:|---:|---:|---:|
 | Gemini | **0.604** | 0.720 | 0.288 | **0.550** |
-| Cosmos 3† | 0.438 | **0.733** | **0.331** | 0.509 |
+| Cosmos 3† | 0.438 | 0.733 | **0.331** | 0.509 |
 | MiniMax H3 | 0.456 | 0.713 | 0.251 | 0.484 |
+| Cosmos 3 Super | 0.340 | 0.743 | 0.268 | 0.460 |
+| JoyAI Echo | 0.423 | 0.602 | 0.127 | 0.397 |
+| DreamX Creator | 0.301 | 0.631 | 0.080 | 0.350 |
+| LTX-2.5 | 0.402 | **0.755** | 0.143 | 0.448 |
 
-Gemini has the strongest audio and overall averages, while Cosmos 3 has the strongest visual and alignment averages. MiniMax H3 remains visually competitive but loses more performance through cross-modal alignment, especially on multi-event prompts. The decomposition matters: for example, a model can receive a strong visual chord score while producing inaccurate notes or poorly synchronized audio.
+Gemini has the strongest audio and overall averages, LTX-2.5 has the strongest visual average, and Cosmos 3 has the strongest alignment average. The decomposition matters: for example, a model can receive a strong visual chord score while producing inaccurate notes or poorly synchronized audio.
 
 † The stored Cosmos 3 result for Prompt 4B contains an audio fallback value of 0.700 because the detector found no usable onsets or pitches. The table matches the current paper artifact, which includes that row, but it should not be interpreted as a completely fallback-free comparison. Rerun with `--no-demo` and inspect all detail fields before using new results in a formal claim.
 
@@ -84,7 +88,7 @@ pianobench/
   data/
     prompts/                 shared instructions and 25 prompt files
     expectations/            machine-readable targets for Levels 1-5
-    videos/                  75 generated videos organized by model and level
+    videos/                  175 generated videos organized by model and level
     manifest.json            prompt/model/video evaluation registry
   evaluation/
     evaluate.py              main evaluation entry point
