@@ -1,0 +1,82 @@
+{
+  "level": 3,
+  "scope": "F-J only; derived directly from data/prompts",
+  "prompts": {
+    "3F": {
+      "notes": [
+        "A4",
+        "G4",
+        "F4",
+        "E4"
+      ],
+      "midis": [
+        69,
+        67,
+        65,
+        64
+      ],
+      "num_notes": 4,
+      "prompt_file": "prompts/level3/prompt_3f.txt"
+    },
+    "3G": {
+      "notes": [
+        "C5",
+        "B4",
+        "A4",
+        "G4"
+      ],
+      "midis": [
+        72,
+        71,
+        69,
+        67
+      ],
+      "num_notes": 4,
+      "prompt_file": "prompts/level3/prompt_3g.txt"
+    },
+    "3H": {
+      "notes": [
+        "A4",
+        "G4",
+        "E4"
+      ],
+      "midis": [
+        69,
+        67,
+        64
+      ],
+      "num_notes": 3,
+      "prompt_file": "prompts/level3/prompt_3h.txt"
+    },
+    "3I": {
+      "notes": [
+        "G4",
+        "F4",
+        "D4",
+        "C4"
+      ],
+      "midis": [
+        67,
+        65,
+        62,
+        60
+      ],
+      "num_notes": 4,
+      "prompt_file": "prompts/level3/prompt_3i.txt"
+    },
+    "3J": {
+      "notes": [
+        "B4",
+        "A4",
+        "F4"
+      ],
+      "midis": [
+        71,
+        69,
+        65
+      ],
+      "num_notes": 3,
+      "prompt_file": "prompts/level3/prompt_3j.txt"
+    }
+  }
+}

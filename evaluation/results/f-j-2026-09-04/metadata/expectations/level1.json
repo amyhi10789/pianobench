@@ -1,0 +1,51 @@
+{
+  "level": 1,
+  "scope": "F-J only; derived directly from data/prompts",
+  "prompts": {
+    "1F": {
+      "note": "F4",
+      "midi": 65,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1,
+      "prompt_file": "prompts/level1/prompt_1f.txt"
+    },
+    "1G": {
+      "note": "B4",
+      "midi": 71,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1,
+      "prompt_file": "prompts/level1/prompt_1g.txt"
+    },
+    "1H": {
+      "note": "C5",
+      "midi": 72,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1,
+      "prompt_file": "prompts/level1/prompt_1h.txt"
+    },
+    "1I": {
+      "note": "A3",
+      "midi": 57,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1,
+      "prompt_file": "prompts/level1/prompt_1i.txt"
+    },
+    "1J": {
+      "note": "E3",
+      "midi": 52,
+      "press_time": 3.0,
+      "hold_seconds": 0.5,
+      "release_time": 3.5,
+      "num_notes": 1,
+      "prompt_file": "prompts/level1/prompt_1j.txt"
+    }
+  }
+}

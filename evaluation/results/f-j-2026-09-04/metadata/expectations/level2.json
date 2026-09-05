@@ -1,0 +1,82 @@
+{
+  "level": 2,
+  "scope": "F-J only; derived directly from data/prompts",
+  "prompts": {
+    "2F": {
+      "notes": [
+        "E4",
+        "F4",
+        "G4",
+        "A4"
+      ],
+      "midis": [
+        64,
+        65,
+        67,
+        69
+      ],
+      "num_notes": 4,
+      "prompt_file": "prompts/level2/prompt_2f.txt"
+    },
+    "2G": {
+      "notes": [
+        "D4",
+        "F4",
+        "A4"
+      ],
+      "midis": [
+        62,
+        65,
+        69
+      ],
+      "num_notes": 3,
+      "prompt_file": "prompts/level2/prompt_2g.txt"
+    },
+    "2H": {
+      "notes": [
+        "G4",
+        "A4",
+        "B4",
+        "C5"
+      ],
+      "midis": [
+        67,
+        69,
+        71,
+        72
+      ],
+      "num_notes": 4,
+      "prompt_file": "prompts/level2/prompt_2h.txt"
+    },
+    "2I": {
+      "notes": [
+        "C4",
+        "E4",
+        "F4",
+        "G4"
+      ],
+      "midis": [
+        60,
+        64,
+        65,
+        67
+      ],
+      "num_notes": 4,
+      "prompt_file": "prompts/level2/prompt_2i.txt"
+    },
+    "2J": {
+      "notes": [
+        "F4",
+        "A4",
+        "B4"
+      ],
+      "midis": [
+        65,
+        69,
+        71
+      ],
+      "num_notes": 3,
+      "prompt_file": "prompts/level2/prompt_2j.txt"
+    }
+  }
+}

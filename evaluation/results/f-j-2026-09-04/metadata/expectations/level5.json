@@ -1,0 +1,123 @@
+{
+  "level": 5,
+  "scope": "F-J only; derived directly from data/prompts",
+  "prompts": {
+    "5F": {
+      "notes": [
+        "F4",
+        "A4"
+      ],
+      "midis": [
+        65,
+        69
+      ],
+      "num_notes": 2,
+      "chord_events": [
+        [
+          "F4",
+          "A4"
+        ]
+      ],
+      "num_chord_events": 1,
+      "prompt_file": "prompts/level5/prompt_5f.txt"
+    },
+    "5G": {
+      "notes": [
+        "G4",
+        "B4",
+        "D5"
+      ],
+      "midis": [
+        67,
+        71,
+        74
+      ],
+      "num_notes": 3,
+      "chord_events": [
+        [
+          "G4",
+          "B4",
+          "D5"
+        ]
+      ],
+      "num_chord_events": 1,
+      "prompt_file": "prompts/level5/prompt_5g.txt"
+    },
+    "5H": {
+      "notes": [
+        "E4",
+        "G4",
+        "A4",
+        "C5"
+      ],
+      "midis": [
+        64,
+        67,
+        69,
+        72
+      ],
+      "num_notes": 4,
+      "chord_events": [
+        [
+          "E4",
+          "G4"
+        ],
+        [
+          "A4",
+          "C5"
+        ]
+      ],
+      "num_chord_events": 2,
+      "prompt_file": "prompts/level5/prompt_5h.txt"
+    },
+    "5I": {
+      "notes": [
+        "E4",
+        "G4",
+        "B4"
+      ],
+      "midis": [
+        64,
+        67,
+        71
+      ],
+      "num_notes": 3,
+      "chord_events": [
+        [
+          "E4",
+          "G4",
+          "B4"
+        ]
+      ],
+      "num_chord_events": 1,
+      "prompt_file": "prompts/level5/prompt_5i.txt"
+    },
+    "5J": {
+      "notes": [
+        "C4",
+        "G4",
+        "E4",
+        "A4"
+      ],
+      "midis": [
+        60,
+        67,
+        64,
+        69
+      ],
+      "num_notes": 4,
+      "chord_events": [
+        [
+          "C4",
+          "G4"
+        ],
+        [
+          "E4",
+          "A4"
+        ]
+      ],
+      "num_chord_events": 2,
+      "prompt_file": "prompts/level5/prompt_5j.txt"
+    }
+  }
+}
